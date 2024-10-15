@@ -1,3 +1,7 @@
 export const Aside = () => {
-	return <></>
+	return (
+		<>
+			<aside className="aside-left active"></aside>
+		</>
+	)
 }
