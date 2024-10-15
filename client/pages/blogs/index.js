@@ -8,15 +8,15 @@ import 'swiper/css/pagination';
 import { FreeMode } from 'swiper/modules';
 import Head from 'next/head';
 
-export default function blogs() {
+export default function Blogs() {
 
-   
-    return <>
-        <Head>
-            <title>Blogs</title>
-        </Head>
-        <div className="blogpage">
-            
-        </div>
-    </>
+
+	return <>
+		<Head>
+			<title>Blogs</title>
+		</Head>
+		<div className="blogpage">
+
+		</div>
+	</>
 }

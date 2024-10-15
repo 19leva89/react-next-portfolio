@@ -1,4 +1,4 @@
-import useFetchData from "@/hooks/useFetchData";
+import useFetchData from "@/hooks/use-fetch-data";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
@@ -13,7 +13,8 @@ const extractFirstParagraph = (markdown) => {
 	return paragraphs[0];
 };
 
-export default function Blogsearch(props) {
+export const BlogSearch = (props) => {
+
 
 	const { allwork } = useFetchData('/api/blogs');  // Assuming useFetchData returns an object with allwork and loading
 

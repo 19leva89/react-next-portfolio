@@ -1,7 +1,7 @@
 import { mongooseConnect } from "@/lib/mongoose";
-import { Shop } from "@/models/Shop";
+import { Shop } from "@/models/shop";
 
-export default async function handle(req, res) {
+export default async function Handle(req, res) {
 
-    
+
 }

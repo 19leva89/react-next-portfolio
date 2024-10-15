@@ -1,6 +1,7 @@
 import { BarLoader, DotLoader, PacmanLoader } from "react-spinners";
 
-export default function Spinner() {
+export const Spinner = () => {
+
     return <>
         <BarLoader color="#5c1df6" />
     </>

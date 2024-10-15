@@ -1,0 +1,13 @@
+export { Aos } from './aos';
+export { Aside } from './aside';
+export { Blog } from './blog';
+export { DataLoading } from './data-loading';
+export { Header } from './header';
+export { Loading } from './loading';
+export { LoginLayout } from './login-layout';
+export { ParentComponent } from './parent-component';
+export { Photo } from './photo';
+export { Project } from './project';
+export { Shop } from './shop';
+export { Spinner } from './spinner';
+export { TruncatedParagraph } from './truncated-paragraph';

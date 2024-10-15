@@ -1,6 +1,6 @@
 import { mongooseConnect } from "@/lib/mongoose";
-import { Comment } from "@/models/Comment";
+import { Comment } from "@/models/comment";
 
-export default async function handle(req, res) {
-    
+export default async function Handle(req, res) {
+
 }

@@ -1,10 +1,10 @@
 
 
-export default function Contactview() {
+export default function ContactView() {
 
 
-    return <>
+	return <>
 
-    </>
+	</>
 
 }

@@ -1,16 +1,16 @@
 import Head from "next/head";
 
-export default function projectslug() {
+export default function ProjectSlug() {
 
-    
-    return <>
-        <Head>
-            <title>{slug}</title>
-        </Head>
 
-        <div className="projectslug">
-         
-        </div>
+	return <>
+		<Head>
+			<title>{slug}</title>
+		</Head>
 
-    </>
+		<div className="projectslug">
+
+		</div>
+
+	</>
 }

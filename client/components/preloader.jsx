@@ -3,7 +3,8 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 
-const Preloader = ({ isLoading }) => {
+export const Preloader = ({ isLoading }) => {
+
     useEffect(() => {
         if (!isLoading) {
             const svg = document.getElementById("preloaderSvg");
@@ -66,5 +67,3 @@ const Preloader = ({ isLoading }) => {
         </div>
     );
 };
-
-export default Preloader;

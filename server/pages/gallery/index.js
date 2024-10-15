@@ -1,9 +1,9 @@
 
 
-export default function gallery() {
+export default function Gallery() {
 
-    return <>
-      
-    </>
+	return <>
+
+	</>
 
 }

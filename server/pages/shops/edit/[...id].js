@@ -1,9 +1,9 @@
 
 
-export default function Editshops() {
+export default function EditShops() {
 
 
-    return <>
-       
-    </>
+	return <>
+
+	</>
 }

@@ -1,10 +1,10 @@
 
 
-export default function shops() {
+export default function Shops() {
 
 
 
-    return <>
+	return <>
 
-    </>
+	</>
 }
