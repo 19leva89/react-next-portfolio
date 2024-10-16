@@ -322,7 +322,6 @@ button {
 }
 
 .profile-nav img {
-	width: 120px;
 	cursor: pointer;
 }
 
@@ -359,8 +358,8 @@ button {
 }
 
 /* .aside-left ul li.nav-active {
-    background-color: #7e37d8;
-    color: #fff;
+	background-color: #7e37d8;
+	color: #fff;
 } */
 
 .nav-actives {
@@ -1118,7 +1117,7 @@ button {
 	transition: border-style 0.3s ease;
 }
 
-@keyframes border-animation {
+@keyframes borderAnimation {
 	0% {
 		border-style: dashed;
 	}
@@ -1265,7 +1264,7 @@ button {
 }
 
 /* Animations */
-@keyframes arrows-42 {
+@keyframes arrows42 {
 	from {
 		transform: rotate(45deg);
 	}
@@ -1275,7 +1274,7 @@ button {
 	}
 }
 
-@keyframes ring-rotate-42 {
+@keyframes ringRotate42 {
 	from {
 		transform: rotate(0);
 	}
@@ -1285,7 +1284,7 @@ button {
 	}
 }
 
-@keyframes ring-stroke-42 {
+@keyframes ringStroke42 {
 	from,
 	to {
 		stroke-dashoffset: 452;
@@ -1298,7 +1297,7 @@ button {
 	}
 }
 
-@keyframes tick-42 {
+@keyframes tick42 {
 	from,
 	3%,
 	47%,
@@ -1434,8 +1433,8 @@ button {
 .jimu-primary-loading:after,
 .jimu-primary-loading {
 	background: #076fe5;
-	-webkit-animation: loading-keys-app-loading 0.8s infinite ease-in-out;
-	animation: loading-keys-app-loading 0.8s infinite ease-in-out;
+	-webkit-animation: loadingKeysAppLoading 0.8s infinite ease-in-out;
+	animation: loadingKeysAppLoading 0.8s infinite ease-in-out;
 	width: 13.6px;
 	height: 32px;
 }
@@ -1450,7 +1449,7 @@ button {
 	animation-delay: 0.16s !important;
 }
 
-@-webkit-keyframes loading-keys-app-loading {
+@-webkit-keyframes loadingKeysAppLoading {
 	0%,
 	80%,
 	100% {
@@ -1466,7 +1465,7 @@ button {
 	}
 }
 
-@keyframes loading-keys-app-loading {
+@keyframes loadingKeysAppLoading {
 	0%,
 	80%,
 	100% {

@@ -374,10 +374,10 @@ header.sticky {
 	width: 100%;
 	height: 3px;
 	background: linear-gradient(260deg, #2a1454 0%, #8750f7 100%);
-	animation: navlistli 0.3s ease-in-out;
+	animation: navListLi 0.3s ease-in-out;
 }
 
-@keyframes nav-list-li {
+@keyframes navListLi {
 	0% {
 		width: 0;
 	}
@@ -407,10 +407,10 @@ header.sticky {
 }
 
 .dark-mode-toggle svg:hover {
-	animation: svgrotate 0.5s ease-in-out forwards;
+	animation: svgRotate 0.5s ease-in-out forwards;
 }
 
-@keyframes svg-rotate {
+@keyframes svgRotate {
 	0% {
 		transform: rotate(0deg);
 	}
@@ -2298,10 +2298,10 @@ header.sticky {
 }
 
 .sbs-input-close:hover svg {
-	animation: rotate-svg 0.5s forwards alternate;
+	animation: rotateSvg 0.5s forwards alternate;
 }
 
-@keyframes rotate-svg {
+@keyframes rotateSvg {
 	0% {
 		transform: rotate(0deg);
 	}
