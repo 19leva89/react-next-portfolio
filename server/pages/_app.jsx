@@ -14,7 +14,11 @@ export default function App({ Component, pageProps }) {
 		<>
 			<ParentComponent appOpen={asideOpen} appAsideOpen={asideClickOpen} />
 
-			<Component {...pageProps} />
+			<main>
+				<div className={asideOpen ? 'container' : 'container active'}>
+					<Component {...pageProps} />
+				</div>
+			</main>
 		</>
 	)
 }
