@@ -1,15 +1,17 @@
 import axios from 'axios'
-import { useState } from 'react'
 import toast from 'react-hot-toast'
-import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
 import MarkdownEditor from 'react-markdown-editor-lite'
-
 import 'react-markdown-editor-lite/lib/index.css'
+
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { ReactSortable } from 'react-sortablejs'
+import { MdDeleteForever } from 'react-icons/md'
 
 import { Spinner } from '@/components'
 
-export const Blog = () => {
+export const Blog = ({ _id }) => {
 	const router = useRouter()
 	const [redirect, setRedirect] = useState(false)
 
@@ -28,17 +30,63 @@ export const Blog = () => {
 	const createBlog = async (e) => {
 		e.preventDefault()
 
+		if (isUploading) {
+			await Promise.all(uploadImagesQuery)
+		}
+
 		const data = { title, slug, images, description, blogCategory, tags, status }
 
 		if (_id) {
 			await axios.put(`/api/blogs`, { ...data, _id })
+
 			toast.success('Blog updated successfully')
 		} else {
 			await axios.post(`/api/blogs`, data)
+
 			toast.success('Blog created successfully')
 		}
 
 		setRedirect(true)
+	}
+
+	const uploadImages = async (e) => {
+		const files = e.target?.files
+
+		if (files?.length > 0) {
+			setIsUploading(true)
+
+			for (const file of files) {
+				const data = new FormData()
+				data.append('file', file)
+
+				// use the axios post method and push the promise to the query
+				uploadImagesQuery.push(
+					axios.post('/api/upload', data).then((res) => setImages((old) => [...old, ...res.data.links])),
+				)
+			}
+
+			// wait for all images to be uploaded
+			await Promise.all(uploadImagesQuery)
+
+			setIsUploading(false)
+
+			toast.success('Images uploaded successfully')
+		} else {
+			toast.error('An error occurred while uploading images!')
+		}
+	}
+
+	const updateImagesOrder = (images) => {
+		setImages(images)
+	}
+
+	const handleDeleteImage = (index) => {
+		const updatedImages = [...images]
+		updatedImages.splice(index, 1)
+
+		setImages(updatedImages)
+
+		toast.success('Image deleted successfully')
 	}
 
 	// for slug url
@@ -47,6 +95,11 @@ export const Blog = () => {
 		const newSlug = inputValue.replace(/\s+/g, '-')
 
 		setSlug(newSlug)
+	}
+
+	if (redirect) {
+		router.push('/blogs')
+		return null
 	}
 
 	return (
@@ -94,16 +147,42 @@ export const Blog = () => {
 			<div className="w-100 flex flex-col flex-left mb-2">
 				<div className="w-100">
 					<label htmlFor="images">Images (first image will be shown as thumbnail, you can drag)</label>
-					<input type="file" id="fileInput" className="mt-1" accept="image/*" multiple />
+					<input
+						type="file"
+						id="fileInput"
+						className="mt-1"
+						accept="image/*"
+						onChange={uploadImages}
+						multiple
+					/>
 				</div>
 
-				<div className="w-100 flex flex-left mt-1">
-					<Spinner />
-				</div>
+				<div className="w-100 flex flex-left mt-1">{isUploading && <Spinner />}</div>
 			</div>
 
-			{/* image preview and image sortable */}
-			{/* pending */}
+			{/* image preview and image sortable with delete image */}
+			{!isUploading && images.length > 0 && (
+				<div className="flex">
+					<ReactSortable
+						list={Array.isArray(images) ? images : []}
+						setList={updateImagesOrder}
+						animation={200}
+						className="flex gap-1"
+					>
+						{images?.map((link, index) => (
+							<div key={link} className="uploaded-img">
+								<img src={link} alt="image" className="object-cover" />
+
+								<div className="delete-img">
+									<button onClick={() => handleDeleteImage(index)}>
+										<MdDeleteForever />
+									</button>
+								</div>
+							</div>
+						))}
+					</ReactSortable>
+				</div>
+			)}
 
 			{/* markdown description */}
 			<div className="description w-100 flex flex-col flex-left mb-2">
@@ -113,6 +192,8 @@ export const Blog = () => {
 
 				<MarkdownEditor
 					style={{ width: '100%', height: '400px' }}
+					value={description}
+					onChange={(e) => setDescription(e.text)}
 					renderHTML={(text) => (
 						<ReactMarkdown
 							components={{
@@ -160,7 +241,13 @@ export const Blog = () => {
 			{/* tags */}
 			<div className="w-100 flex flex-col flex-left mb-2">
 				<label htmlFor="tags">Tags</label>
-				<select name="tags" id="tags" multiple>
+				<select
+					name="tags"
+					id="tags"
+					value={tags}
+					onChange={(e) => setTags(Array.from(e.target.selectedOptions, (option) => option.value))}
+					multiple
+				>
 					<option value="html">HTML</option>
 					<option value="css">CSS</option>
 					<option value="javascript">Java Script</option>
@@ -173,7 +260,7 @@ export const Blog = () => {
 			{/* blog status */}
 			<div className="w-100 flex flex-col flex-left mb-2">
 				<label htmlFor="status">Status</label>
-				<select name="status" id="status">
+				<select name="status" id="status" value={status} onChange={(e) => setStatus(e.target.value)}>
 					<option value="">No select</option>
 					<option value="draft">Draft</option>
 					<option value="publish">Publish</option>
