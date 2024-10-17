@@ -39,7 +39,7 @@ export default function DraftBlogs() {
 	// get current page of blogs
 	const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog)
 
-	const draftedBlogs = currentBlogs.filter((blog) => blog.status.includes('draft'))
+	const draftedBlogs = currentBlogs.filter((blog) => blog.status === 'draft')
 
 	const pageNumbers = []
 

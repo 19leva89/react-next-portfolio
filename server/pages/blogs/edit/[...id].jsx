@@ -24,7 +24,7 @@ export default function EditProduct() {
 
 				setProductInfo(res.data)
 			} catch (error) {
-				console.error('Ошибка при загрузке данных:', error)
+				console.error('Data boot error:', error)
 			}
 		}
 

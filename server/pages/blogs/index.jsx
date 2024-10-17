@@ -39,7 +39,7 @@ export default function Blogs() {
 	// get current page of blogs
 	const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog)
 
-	const publishedBlogs = currentBlogs.filter((blog) => blog.status.includes('publish'))
+	const publishedBlogs = currentBlogs.filter((blog) => blog.status === 'publish')
 
 	const pageNumbers = []
 
