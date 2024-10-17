@@ -797,6 +797,12 @@ button {
 	cursor: not-allowed;
 }
 
+.blog-image-container {
+	width: 200px;
+	height: 100px;
+	overflow: hidden;
+}
+
 /* ********************************************** */
 /* *******************************  ADD NEW BLOGS Page */
 /* ********************************************** */

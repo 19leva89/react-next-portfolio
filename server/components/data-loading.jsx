@@ -1,9 +1,7 @@
 export const DataLoading = () => {
 	return (
-		<>
-			<div class="loader">
-				<div class="justify-content-center jimu-primary-loading"></div>
-			</div>
-		</>
+		<div className="loader">
+			<div className="flex-center jimu-primary-loading"></div>
+		</div>
 	)
 }

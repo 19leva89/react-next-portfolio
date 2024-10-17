@@ -23,9 +23,9 @@ export default async function handler(req, res) {
 
 			res.json(blog)
 		} else {
-			const blogs = await (await Blog.find()).reverse()
+			const blogs = await Blog.find();
 
-			res.json(blogs)
+			res.json(blogs.reverse());
 		}
 	}
 

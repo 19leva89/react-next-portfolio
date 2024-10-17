@@ -11,17 +11,26 @@ import { MdDeleteForever } from 'react-icons/md'
 
 import { Spinner } from '@/components'
 
-export const Blog = ({ _id }) => {
+export const Blog = ({
+	_id,
+	title: existingTitle,
+	slug: existingSlug,
+	images: existingImages,
+	description: existingDescription,
+	blogCategory: existingBlogCategory,
+	tags: existingTags,
+	status: existingStatus,
+}) => {
 	const router = useRouter()
 	const [redirect, setRedirect] = useState(false)
 
-	const [title, setTitle] = useState('')
-	const [slug, setSlug] = useState('')
-	const [images, setImages] = useState([])
-	const [description, setDescription] = useState('')
-	const [blogCategory, setBlogCategory] = useState([])
-	const [tags, setTags] = useState([])
-	const [status, setStatus] = useState('')
+	const [title, setTitle] = useState(existingTitle || '')
+	const [slug, setSlug] = useState(existingSlug || '')
+	const [images, setImages] = useState(existingImages || [])
+	const [description, setDescription] = useState(existingDescription || '')
+	const [blogCategory, setBlogCategory] = useState(existingBlogCategory || [])
+	const [tags, setTags] = useState(existingTags || [])
+	const [status, setStatus] = useState(existingStatus || '')
 
 	// for images uploading
 	const [isUploading, setIsUploading] = useState(false)
@@ -161,7 +170,7 @@ export const Blog = ({ _id }) => {
 			</div>
 
 			{/* image preview and image sortable with delete image */}
-			{!isUploading && images.length > 0 && (
+			{!isUploading && images?.length > 0 && (
 				<div className="flex">
 					<ReactSortable
 						list={Array.isArray(images) ? images : []}
@@ -171,7 +180,7 @@ export const Blog = ({ _id }) => {
 					>
 						{images?.map((link, index) => (
 							<div key={link} className="uploaded-img">
-								<img src={link} alt="image" className="object-cover" />
+								<img src={link} alt="image" className="object-cover" width={150} height={80} />
 
 								<div className="delete-img">
 									<button onClick={() => handleDeleteImage(index)}>

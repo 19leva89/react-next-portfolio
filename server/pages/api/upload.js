@@ -24,16 +24,24 @@ export default async (req, res) => {
 		})
 	})
 
+	if (!files || !files.file) {
+		return res.status(400).json({ error: 'No files uploaded' })
+	}
+
 	const links = []
 	for (const file of files.file) {
 		const options = {
 			folder: 'blogs-admin',
 			public_id: `file_${Date.now()}`,
-			resourse_type: 'auto',
+			resource_type: 'auto',
 		}
 
-		const result = await cloudinary.v2.uploader.upload(file.path, options)
-		links.push(result.secure_url)
+		try {
+			const result = await cloudinary.v2.uploader.upload(file.path, options)
+			links.push(result.secure_url)
+		} catch (error) {
+			return res.status(500).json({ error: 'Upload failed', details: error.message })
+		}
 	}
 
 	return res.json({ links })
