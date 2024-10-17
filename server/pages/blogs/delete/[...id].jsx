@@ -6,6 +6,8 @@ import { TbTrashX } from 'react-icons/tb'
 import { useState, useEffect } from 'react'
 import { RiBloggerLine } from 'react-icons/ri'
 
+import { DashboardHeader } from '@/components'
+
 export default function DeleteProduct() {
 	const router = useRouter()
 
@@ -54,18 +56,12 @@ export default function DeleteProduct() {
 			</Head>
 
 			<div className="blog-page">
-				<div className="title-dashboard flex flex-sb">
-					<div>
-						<h2>
-							Delete <span>{productInfo?.title}</span>
-						</h2>
-						<h3>ADMIN PANEL</h3>
-					</div>
-
-					<div className="breadcrumb">
-						<RiBloggerLine /> <span>/</span> <span>Delete Blog</span>
-					</div>
-				</div>
+				<DashboardHeader
+					title="Delete"
+					subtitle={productInfo?.title}
+					icon={RiBloggerLine}
+					breadcrumb="Delete Blog"
+				/>
 
 				<div className="delete-sec flex flex-center wh_100">
 					<div className="delete-card">

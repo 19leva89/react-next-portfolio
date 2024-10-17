@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { FaEdit } from 'react-icons/fa'
 import { RiBloggerLine, RiDeleteBin6Fill } from 'react-icons/ri'
 
-import { DataLoading } from '@/components'
 import { useFetchData } from '@/hooks/use-fetch-data'
+import { DashboardHeader, DataLoading } from '@/components'
 
 export default function Blogs() {
 	// pagination
@@ -49,18 +49,7 @@ export default function Blogs() {
 
 	return (
 		<div className="blog-page">
-			<div className="title-dashboard flex flex-sb">
-				<div>
-					<h2>
-						All Published <span>Blogs</span>
-					</h2>
-					<h3>ADMIN PANEL</h3>
-				</div>
-
-				<div className="breadcrumb">
-					<RiBloggerLine /> <span>/</span> <span>Blogs</span>
-				</div>
-			</div>
+			<DashboardHeader title="All Published" subtitle="Blogs" icon={RiBloggerLine} breadcrumb="Blogs" />
 
 			<div className="blogs-table">
 				<div className="flex gap-2 mb-1">

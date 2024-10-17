@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { RiBloggerLine } from 'react-icons/ri'
 
-import { Blog } from '@/components'
+import { Blog, DashboardHeader } from '@/components'
 
 export default function EditProduct() {
 	const router = useRouter()
@@ -38,18 +38,12 @@ export default function EditProduct() {
 			</Head>
 
 			<div className="blog-page">
-				<div className="title-dashboard flex flex-sb">
-					<div>
-						<h2>
-							Edit <span>{productInfo?.title}</span>
-						</h2>
-						<h3>ADMIN PANEL</h3>
-					</div>
-
-					<div className="breadcrumb">
-						<RiBloggerLine /> <span>/</span> <span>Edit Blog</span>
-					</div>
-				</div>
+				<DashboardHeader
+					title="Edit"
+					subtitle={productInfo?.title}
+					icon={RiBloggerLine}
+					breadcrumb="Edit Blog"
+				/>
 
 				<div className="mt-3">{productInfo && <Blog {...productInfo} />}</div>
 			</div>

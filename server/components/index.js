@@ -1,6 +1,7 @@
 export { Aos } from './aos';
 export { Aside } from './aside';
 export { Blog } from './blog';
+export { DashboardHeader } from './dashboard-header';
 export { DataLoading } from './data-loading';
 export { Header } from './header';
 export { Loading } from './loading';
