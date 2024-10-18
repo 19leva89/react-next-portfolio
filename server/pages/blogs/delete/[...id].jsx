@@ -27,7 +27,7 @@ export default function DeleteBlog() {
 
 			goBack()
 		} catch (error) {
-			console.error('Ошибка при удалении:', error)
+			console.error('[BLOGS_DELETE] Error deleting:', error)
 		}
 	}
 
@@ -42,7 +42,7 @@ export default function DeleteBlog() {
 
 				setProductInfo(res.data)
 			} catch (error) {
-				console.error('Ошибка при загрузке данных:', error)
+				console.error('[BLOGS_DELETE] Error loading data:', error)
 			}
 		}
 
