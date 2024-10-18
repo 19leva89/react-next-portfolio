@@ -5,7 +5,7 @@ import { FaEdit } from 'react-icons/fa'
 import { RiArrowRightDoubleFill, RiDeleteBin6Fill } from 'react-icons/ri'
 
 import { useFetchData } from '@/hooks/use-fetch-data'
-import { DashboardHeader, DataLoading } from '@/components'
+import { DashboardHeader, DataLoading, Pagination } from '@/components'
 
 export default function Blogs() {
 	// pagination
@@ -15,7 +15,7 @@ export default function Blogs() {
 	// search
 	const [searchQuery, setSearchQuery] = useState('')
 
-	// fetch blog data
+	// fetch content data
 	const { allData, loading } = useFetchData('/api/blogs')
 
 	// handle page change
@@ -23,29 +23,23 @@ export default function Blogs() {
 		setCurrentPage(pageNumber)
 	}
 
-	// total number of blogs
-	const totalBlogs = allData.length
-
 	// filter all data based on search query
-	const filteredBlogs =
+	const filteredContent =
 		searchQuery.trim() === ''
 			? allData
-			: allData.filter((blog) => blog.title.toLowerCase().includes(searchQuery.toLowerCase()))
+			: allData.filter((content) => content.title.toLowerCase().includes(searchQuery.toLowerCase()))
 
-	// calculate index of the first blog displayed on the current page
-	const indexOfFirstBlog = (currentPage - 1) * perPage
-	const indexOfLastBlog = currentPage * perPage
+	// total pages
+	const totalPages = Math.ceil(filteredContent.length / perPage)
 
-	// get current page of blogs
-	const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog)
+	// calculate index of the first content displayed on the current page
+	const indexOfFirstContent = (currentPage - 1) * perPage
+	const indexOfLastContent = currentPage * perPage
 
-	const publishedBlogs = currentBlogs.filter((blog) => blog.status === 'publish')
+	// get current page of content
+	const currentContent = filteredContent.slice(indexOfFirstContent, indexOfLastContent)
 
-	const pageNumbers = []
-
-	for (let i = 1; i <= Math.ceil(totalBlogs / perPage); i++) {
-		pageNumbers.push(i)
-	}
+	const publishedContent = currentContent.filter((content) => content.status === 'publish')
 
 	return (
 		<div className="content-page">
@@ -86,21 +80,21 @@ export default function Blogs() {
 							</tr>
 						) : (
 							<>
-								{publishedBlogs.length === 0 ? (
+								{publishedContent.length === 0 ? (
 									<tr>
 										<td colSpan={4} className="text-center">
 											No Blogs Found
 										</td>
 									</tr>
 								) : (
-									publishedBlogs.map((blog, index) => (
-										<tr key={blog._id}>
-											<td>{indexOfFirstBlog + index + 1}</td>
+									publishedContent.map((content, index) => (
+										<tr key={content._id}>
+											<td>{indexOfFirstContent + index + 1}</td>
 
 											<td>
 												<div className="content-image-container">
 													<Image
-														src={blog.images[0]}
+														src={content.images[0]}
 														alt="image"
 														width={200}
 														height={100}
@@ -111,18 +105,18 @@ export default function Blogs() {
 											</td>
 
 											<td>
-												<h3>{blog.title}</h3>
+												<h3>{content.title}</h3>
 											</td>
 
 											<td>
 												<div className="flex gap-2 flex-center">
-													<Link href={`/blogs/edit/${blog._id}`}>
+													<Link href={`/blogs/edit/${content._id}`}>
 														<button>
 															<FaEdit />
 														</button>
 													</Link>
 
-													<Link href={`/blogs/delete/${blog._id}`}>
+													<Link href={`/blogs/delete/${content._id}`}>
 														<button>
 															<RiDeleteBin6Fill />
 														</button>
@@ -136,6 +130,11 @@ export default function Blogs() {
 						)}
 					</tbody>
 				</table>
+
+				{/* for pagination */}
+				{publishedContent.length > 0 && (
+					<Pagination paginate={paginate} currentPage={currentPage} totalPages={totalPages} />
+				)}
 			</div>
 		</div>
 	)

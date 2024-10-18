@@ -6,6 +6,7 @@ export { DataLoading } from './data-loading';
 export { Header } from './header';
 export { Loading } from './loading';
 export { LoginLayout } from './login-layout';
+export { Pagination } from './pagination';
 export { ParentComponent } from './parent-component';
 export { Photo } from './photo';
 export { Project } from './project';

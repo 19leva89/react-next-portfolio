@@ -766,20 +766,33 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 5px;
 	margin-bottom: 3rem;
 	margin-top: 3rem;
 	color: #000;
 }
 
 .content-pagination button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: #f0f0f0;
 	border: none;
+	width: 50px;
+	height: 46px;
 	color: #333;
-	padding: 15px 20px;
-	font-weight: 600;
-	margin-right: 5px;
 	border-radius: 10px;
 	cursor: pointer;
+}
+
+.content-pagination button span {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.content-pagination button svg {
+	width: 26px;
+	height: 26px;
 }
 
 .content-pagination button:hover {
