@@ -673,10 +673,10 @@ button {
 }
 
 /* ********************************************** */
-/* ******************************* BLOGS Page */
+/* ************************ BLOGS, PROJECTS Page */
 /* ********************************************** */
 
-.blog-page {
+.content-page {
 	position: relative;
 	/* max-width: 1650px;
     margin: auto; */
@@ -686,13 +686,13 @@ button {
 	padding: 2rem;
 }
 
-.blogs-table {
+.contents-table {
 	width: 100%;
 	height: 100%;
 	padding: 4rem 0;
 }
 
-.blogs-table input {
+.contents-table input {
 	width: 450px;
 	padding: 10px;
 	border: 1px solid #999;
@@ -702,36 +702,36 @@ button {
 	border-radius: 10px;
 }
 
-.blogs-table input:focus {
+.contents-table input:focus {
 	/* outline: none; */
 	box-shadow: 0 0 10px #9674c3;
 }
 
-.blogs-table table {
+.contents-table table {
 	width: 100%;
 	color: #1b3155;
 	text-align: left;
 	font-size: 1.3rem;
 }
 
-.blogs-table table thead th {
+.contents-table table thead th {
 	color: #1b3155;
 	background-color: #cfe2ff;
 	padding: 0.75rem;
 	font-size: 1.5rem;
 }
 
-.blogs-table table tbody td {
+.contents-table table tbody td {
 	color: #1b3155;
 	padding: 1rem 10px;
 }
 
-.blogs-table table tbody {
+.contents-table table tbody {
 	border: 1px solid #000;
 	background-color: #f0f0f0;
 }
 
-.blogs-table table button {
+.contents-table table button {
 	font-size: 15px;
 	display: inline-flex;
 	gap: 10px;
@@ -743,26 +743,26 @@ button {
 	transition: 0.3s ease;
 }
 
-.blogs-table table button:hover:nth-child(1) {
+.contents-table table button:hover:nth-child(1) {
 	background-color: rgb(255, 85, 85);
 	border-color: rgb(255, 85, 85);
 	color: #fff;
 }
 
-.blogs-table table button:hover:nth-child(2) {
+.contents-table table button:hover:nth-child(2) {
 	background-color: green;
 	border-color: green;
 	color: #fff;
 }
 
-.blogs-table table button:hover:nth-child(3) {
+.contents-table table button:hover:nth-child(3) {
 	background-color: rgb(14, 130, 198);
 	border-color: rgb(63, 206, 63);
 	color: #fff;
 }
 
 /* CSS for pagination buttons */
-.blog-pagination {
+.content-pagination {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -771,7 +771,7 @@ button {
 	color: #000;
 }
 
-.blog-pagination button {
+.content-pagination button {
 	background-color: #f0f0f0;
 	border: none;
 	color: #333;
@@ -782,32 +782,32 @@ button {
 	cursor: pointer;
 }
 
-.blog-pagination button:hover {
+.content-pagination button:hover {
 	background-color: #667eea;
 	color: #fff;
 }
 
-.blog-pagination button.active {
+.content-pagination button.active {
 	background-color: #667eea;
 	color: #fff;
 }
 
-.blog-pagination button:disabled {
+.content-pagination button:disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
 }
 
-.blog-image-container {
+.content-image-container {
 	width: 200px;
 	height: 100px;
 	overflow: hidden;
 }
 
 /* ********************************************** */
-/* *******************************  ADD NEW BLOGS Page */
+/* ****************  ADD NEW BLOGS, PROJECTS Page */
 /* ********************************************** */
 
-.add-blogs-page {
+.add-contents-page {
 	position: relative;
 	/* max-width: 1650px;
     margin: auto; */
@@ -817,7 +817,7 @@ button {
 	padding: 2rem;
 }
 
-.blogs-add {
+.contents-add {
 	width: 100%;
 	padding: 3rem 0;
 }
@@ -1669,21 +1669,21 @@ button {
 		height: 432px;
 	}
 
-	.blogs-table table,
-	.blogs-table table thead th {
+	.contents-table table,
+	.contents-table table thead th {
 		font-size: 1rem;
 	}
 
-	.blogs-table table .gap-2 {
+	.contents-table table .gap-2 {
 		gap: 1rem;
 		flex-direction: column;
 	}
 
-	.blogs-table table img {
+	.contents-table table img {
 		width: 80px;
 	}
 
-	.add-blogs-page {
+	.add-contents-page {
 		padding: 1rem;
 	}
 
@@ -1691,7 +1691,7 @@ button {
 		padding: 1rem;
 	}
 
-	.blogs-table {
+	.contents-table {
 		overflow-x: scroll;
 	}
 
@@ -1731,7 +1731,7 @@ button {
 	}
 
 	.dashboard,
-	.blog-page {
+	.content-page {
 		padding: 1rem;
 	}
 
@@ -1747,12 +1747,12 @@ button {
 		font-size: 1.2rem;
 	}
 
-	.blogs-table .gap-2 {
+	.contents-table .gap-2 {
 		flex-direction: column;
 		gap: 1rem;
 	}
 
-	.blogs-table input {
+	.contents-table input {
 		width: 100%;
 	}
 
@@ -1797,12 +1797,12 @@ button {
 		text-align: center;
 	}
 
-	.blogs-table table,
-	.blogs-table table thead th {
+	.contents-table table,
+	.contents-table table thead th {
 		font-size: 15px;
 	}
 
-	.blogs-table table h3 {
+	.contents-table table h3 {
 		width: 125px;
 	}
 }

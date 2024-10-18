@@ -98,7 +98,7 @@ export default function Home() {
 			</Head>
 
 			<div className="dashboard">
-				<DashboardHeader title="Admin" subtitle="Dashboard" icon={IoHome} breadcrumb="Dashboard" />
+				<DashboardHeader title="Admin" subtitle="Dashboard" icon={IoHome} breadcrumb="dashboard" />
 
 				{/* dashboard four cards */}
 				<div className="top-four-cards flex flex-sb">

@@ -1694,11 +1694,11 @@ header.sticky {
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ BLOGS PAGE */
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 
-.blog-page {
+.content-page {
 	background-color: #111327;
 }
 
-.dark .blog-page {
+.dark .content-page {
 	background-color: var(--week-white);
 }
 

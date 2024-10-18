@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import { FaEdit } from 'react-icons/fa'
-import { RiBloggerLine, RiDeleteBin6Fill } from 'react-icons/ri'
+import { RiArrowRightDoubleFill, RiDeleteBin6Fill } from 'react-icons/ri'
 
 import { useFetchData } from '@/hooks/use-fetch-data'
 import { DashboardHeader, DataLoading } from '@/components'
@@ -48,10 +48,15 @@ export default function Blogs() {
 	}
 
 	return (
-		<div className="blog-page">
-			<DashboardHeader title="All Published" subtitle="Blogs" icon={RiBloggerLine} breadcrumb="Blogs" />
+		<div className="content-page">
+			<DashboardHeader
+				title="All Published"
+				subtitle="Blogs"
+				icon={RiArrowRightDoubleFill}
+				breadcrumb="blogs"
+			/>
 
-			<div className="blogs-table">
+			<div className="contents-table">
 				<div className="flex gap-2 mb-1">
 					<h2>Search Blogs:</h2>
 					<input
@@ -93,7 +98,7 @@ export default function Blogs() {
 											<td>{indexOfFirstBlog + index + 1}</td>
 
 											<td>
-												<div className="blog-image-container">
+												<div className="content-image-container">
 													<Image
 														src={blog.images[0]}
 														alt="image"

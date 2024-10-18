@@ -4,11 +4,11 @@ import toast from 'react-hot-toast'
 import { useRouter } from 'next/router'
 import { TbTrashX } from 'react-icons/tb'
 import { useState, useEffect } from 'react'
-import { RiBloggerLine } from 'react-icons/ri'
+import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
 import { DashboardHeader } from '@/components'
 
-export default function DeleteProduct() {
+export default function DeleteBlog() {
 	const router = useRouter()
 
 	const { id } = router.query
@@ -55,12 +55,12 @@ export default function DeleteProduct() {
 				<title>Delete Blog</title>
 			</Head>
 
-			<div className="blog-page">
+			<div className="content-page">
 				<DashboardHeader
 					title="Delete"
 					subtitle={productInfo?.title}
-					icon={RiBloggerLine}
-					breadcrumb="Delete Blog"
+					icon={RiArrowRightDoubleFill}
+					breadcrumb="delete blog"
 				/>
 
 				<div className="delete-sec flex flex-center wh_100">

@@ -2,11 +2,11 @@ import axios from 'axios'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
-import { RiBloggerLine } from 'react-icons/ri'
+import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
 import { Blog, DashboardHeader } from '@/components'
 
-export default function EditProduct() {
+export default function EditBlog() {
 	const router = useRouter()
 
 	const { id } = router.query
@@ -37,12 +37,12 @@ export default function EditProduct() {
 				<title>Update Blog</title>
 			</Head>
 
-			<div className="blog-page">
+			<div className="content-page">
 				<DashboardHeader
 					title="Edit"
 					subtitle={productInfo?.title}
-					icon={RiBloggerLine}
-					breadcrumb="Edit Blog"
+					icon={RiArrowRightDoubleFill}
+					breadcrumb="edit blog"
 				/>
 
 				<div className="mt-3">{productInfo && <Blog {...productInfo} />}</div>
