@@ -24,7 +24,7 @@ export default function EditProject() {
 
 				setProductInfo(res.data)
 			} catch (error) {
-				console.error('Data boot error:', error)
+				console.error('[PROJECTS_EDIT] Data boot error:', error)
 			}
 		}
 

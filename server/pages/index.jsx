@@ -80,7 +80,7 @@ export default function Home() {
 				setLoading(false)
 			} catch (error) {
 				setLoading(false)
-				console.error('Data fetch error:', error)
+				console.error('[PAGES_HOME] Data fetch error:', error)
 			}
 		}
 

@@ -24,7 +24,7 @@ export default function EditBlog() {
 
 				setProductInfo(res.data)
 			} catch (error) {
-				console.error('Data boot error:', error)
+				console.error('[BLOGS_EDIT] Data boot error:', error)
 			}
 		}
 
