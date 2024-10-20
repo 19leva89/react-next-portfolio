@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
-import { Photo, DashboardHeader } from '@/components'
+import { Photo, DashboardHeader, LoginLayout } from '@/components'
 
 export default function EditPhoto() {
 	const router = useRouter()
@@ -32,7 +32,7 @@ export default function EditPhoto() {
 	}, [id])
 
 	return (
-		<>
+		<LoginLayout>
 			<Head>
 				<title>Update Photo</title>
 			</Head>
@@ -47,6 +47,6 @@ export default function EditPhoto() {
 
 				<div className="mt-3">{productInfo && <Photo {...productInfo} />}</div>
 			</div>
-		</>
+		</LoginLayout>
 	)
 }

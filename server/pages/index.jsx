@@ -5,7 +5,7 @@ import { IoHome } from 'react-icons/io5'
 import { useEffect, useState } from 'react'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
 
-import { DashboardHeader, Loading } from '@/components'
+import { DashboardHeader, LoginLayout } from '@/components'
 
 export default function Home() {
 	ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
@@ -16,7 +16,6 @@ export default function Home() {
 	const [shopData, setShopData] = useState([])
 	const [photosData, setPhotosData] = useState([])
 	const [loading, setLoading] = useState(true)
-	console.log('blogsData', blogsData)
 
 	// define option within the component scope
 	const options = {
@@ -88,7 +87,7 @@ export default function Home() {
 	}, [])
 
 	return (
-		<>
+		<LoginLayout>
 			<Head>
 				<title>Portfolio Backend</title>
 
@@ -216,6 +215,6 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-		</>
+		</LoginLayout>
 	)
 }

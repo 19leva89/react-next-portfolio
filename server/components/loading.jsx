@@ -10,9 +10,9 @@ export const Loading = () => {
 			>
 				<defs>
 					<linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
-						<stop offset="0%" stop-color="#000"></stop>
+						<stop offset="0%" stopColor="#000"></stop>
 
-						<stop offset="100%" stop-color="#fff"></stop>
+						<stop offset="100%" stopColor="#fff"></stop>
 					</linearGradient>
 
 					<mask id="mask1">
@@ -25,36 +25,36 @@ export const Loading = () => {
 				</defs>
 
 				<g>
-					<g class="pl__ring-rotate">
+					<g className="pl-ring-rotate">
 						<circle
-							class="pl__ring-stroke"
+							className="pl-ring-stroke"
 							cx="80"
 							cy="80"
 							r="72"
 							fill="none"
 							stroke="hsl(223,90%,55%)"
-							stroke-width="16"
-							stroke-dasharray="452.39 452.39"
-							stroke-dashoffset="452"
-							stroke-linecap="round"
+							strokeWidth="16"
+							strokeDasharray="452.39 452.39"
+							strokeDashoffset="452"
+							strokeLinecap="round"
 							transform="rotate(-45,80,80)"
 						></circle>
 					</g>
 				</g>
 
 				<g mask="url(#mask1)">
-					<g class="pl__ring-rotate">
+					<g className="pl-ring-rotate">
 						<circle
-							class="pl__ring-stroke"
+							className="pl-ring-stroke"
 							cx="80"
 							cy="80"
 							r="72"
 							fill="none"
 							stroke="hsl(193,90%,55%)"
-							stroke-width="16"
-							stroke-dasharray="452.39 452.39"
-							stroke-dashoffset="452"
-							stroke-linecap="round"
+							strokeWidth="16"
+							strokeDasharray="452.39 452.39"
+							strokeDashoffset="452"
+							strokeLinecap="round"
 							transform="rotate(-45,80,80)"
 						></circle>
 					</g>
@@ -62,63 +62,63 @@ export const Loading = () => {
 
 				<g>
 					<g
-						stroke-width="4"
-						stroke-dasharray="12 12"
-						stroke-dashoffset="12"
-						stroke-linecap="round"
+						strokeWidth="4"
+						strokeDasharray="12 12"
+						strokeDashoffset="12"
+						strokeLinecap="round"
 						transform="translate(80,80)"
 					>
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,10%,90%)"
 							points="0,2 0,14"
 							transform="rotate(-135,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,10%,90%)"
 							points="0,2 0,14"
 							transform="rotate(-90,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,10%,90%)"
 							points="0,2 0,14"
 							transform="rotate(-45,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,10%,90%)"
 							points="0,2 0,14"
 							transform="rotate(0,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,10%,90%)"
 							points="0,2 0,14"
 							transform="rotate(45,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,10%,90%)"
 							points="0,2 0,14"
 							transform="rotate(90,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,10%,90%)"
 							points="0,2 0,14"
 							transform="rotate(135,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,10%,90%)"
 							points="0,2 0,14"
 							transform="rotate(180,0,0) translate(0,40)"
@@ -128,63 +128,63 @@ export const Loading = () => {
 
 				<g mask="url(#mask1)">
 					<g
-						stroke-width="4"
-						stroke-dasharray="12 12"
-						stroke-dashoffset="12"
-						stroke-linecap="round"
+						strokeWidth="4"
+						strokeDasharray="12 12"
+						strokeDashoffset="12"
+						strokeLinecap="round"
 						transform="translate(80,80)"
 					>
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,90%,80%)"
 							points="0,2 0,14"
 							transform="rotate(-135,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,90%,80%)"
 							points="0,2 0,14"
 							transform="rotate(-90,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,90%,80%)"
 							points="0,2 0,14"
 							transform="rotate(-45,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-_tick"
 							stroke="hsl(223,90%,80%)"
 							points="0,2 0,14"
 							transform="rotate(0,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,90%,80%)"
 							points="0,2 0,14"
 							transform="rotate(45,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,90%,80%)"
 							points="0,2 0,14"
 							transform="rotate(90,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,90%,80%)"
 							points="0,2 0,14"
 							transform="rotate(135,0,0) translate(0,40)"
 						></polyline>
 
 						<polyline
-							class="pl__tick"
+							className="pl-tick"
 							stroke="hsl(223,90%,80%)"
 							points="0,2 0,14"
 							transform="rotate(180,0,0) translate(0,40)"
@@ -194,7 +194,7 @@ export const Loading = () => {
 
 				<g>
 					<g transform="translate(64,28)">
-						<g class="pl__arrows" transform="rotate(45,16,52)">
+						<g className="pl-arrows" transform="rotate(45,16,52)">
 							<path
 								fill="hsl(3,90%,55%)"
 								d="M17.998,1.506l13.892,43.594c.455,1.426-.56,2.899-1.998,2.899H2.108c-1.437,0-2.452-1.473-1.998-2.899L14.002,1.506c.64-2.008,3.356-2.008,3.996,0Z"
@@ -210,7 +210,7 @@ export const Loading = () => {
 
 				<g mask="url(#mask2)">
 					<g transform="translate(64,28)">
-						<g class="pl__arrows" transform="rotate(45,16,52)">
+						<g className="pl-arrows" transform="rotate(45,16,52)">
 							<path
 								fill="hsl(333,90%,55%)"
 								d="M17.998,1.506l13.892,43.594c.455,1.426-.56,2.899-1.998,2.899H2.108c-1.437,0-2.452-1.473-1.998-2.899L14.002,1.506c.64-2.008,3.356-2.008,3.996,0Z"

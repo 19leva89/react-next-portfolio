@@ -5,7 +5,7 @@ import { FaEdit } from 'react-icons/fa'
 import { RiArrowRightDoubleFill, RiDeleteBin6Fill } from 'react-icons/ri'
 
 import { useFetchData } from '@/hooks/use-fetch-data'
-import { DashboardHeader, DataLoading, Pagination } from '@/components'
+import { DashboardHeader, DataLoading, LoginLayout, Pagination } from '@/components'
 
 export default function Projects() {
 	// pagination
@@ -42,100 +42,103 @@ export default function Projects() {
 	const publishedContent = currentContent.filter((content) => content.status === 'publish')
 
 	return (
-		<div className="content-page">
-			<DashboardHeader
-				title="All Published"
-				subtitle="Projects"
-				icon={RiArrowRightDoubleFill}
-				breadcrumb="projects"
-			/>
+		<LoginLayout>
+			<div className="content-page">
+				<DashboardHeader
+					title="All Published"
+					subtitle="Projects"
+					icon={RiArrowRightDoubleFill}
+					breadcrumb="projects"
+				/>
 
-			<div className="contents-table">
-				<div className="flex gap-2 mb-1">
-					<h2>Search Projects:</h2>
-					<input
-						type="text"
-						placeholder="Search by title..."
-						value={searchQuery}
-						onChange={(e) => setSearchQuery(e.target.value)}
-					/>
-				</div>
+				<div className="contents-table">
+					<div className="flex gap-2 mb-1">
+						<h2>Search Projects:</h2>
+						<input
+							type="text"
+							placeholder="Search by title..."
+							value={searchQuery}
+							onChange={(e) => setSearchQuery(e.target.value)}
+						/>
+					</div>
 
-				<table>
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Image</th>
-							<th>Title</th>
-							<th>Edit / Delete</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						{loading ? (
+					<table>
+						<thead>
 							<tr>
-								<td colSpan={4}>
-									<DataLoading />
-								</td>
+								<th>#</th>
+								<th>Image</th>
+								<th>Title</th>
+								<th>Edit / Delete</th>
 							</tr>
-						) : (
-							<>
-								{publishedContent.length === 0 ? (
-									<tr>
-										<td colSpan={4} className="text-center">
-											No Projects Found
-										</td>
-									</tr>
-								) : (
-									publishedContent.map((content, index) => (
-										<tr key={content._id}>
-											<td>{indexOfFirstContent + index + 1}</td>
+						</thead>
 
-											<td>
-												<div className="content-image-container">
-													<Image
-														src={content.images[0]}
-														alt="image"
-														width={200}
-														height={100}
-														layout="responsive"
-														objectFit="cover"
-													/>
-												</div>
-											</td>
-
-											<td>
-												<h3>{content.title}</h3>
-											</td>
-
-											<td>
-												<div className="flex gap-2 flex-center">
-													<Link href={`/projects/edit/${content._id}`}>
-														<button>
-															<FaEdit />
-														</button>
-													</Link>
-
-													<Link href={`/projects/delete/${content._id}`}>
-														<button>
-															<RiDeleteBin6Fill />
-														</button>
-													</Link>
-												</div>
+						<tbody>
+							{loading ? (
+								<tr>
+									<td colSpan={4}>
+										<DataLoading />
+									</td>
+								</tr>
+							) : (
+								<>
+									{publishedContent.length === 0 ? (
+										<tr>
+											<td colSpan={4} className="text-center">
+												No Projects Found
 											</td>
 										</tr>
-									))
-								)}
-							</>
-						)}
-					</tbody>
-				</table>
+									) : (
+										publishedContent.map((content, index) => (
+											<tr key={content._id}>
+												<td>{indexOfFirstContent + index + 1}</td>
 
-				{/* for pagination */}
-				{publishedContent.length > 0 && (
-					<Pagination paginate={paginate} currentPage={currentPage} totalPages={totalPages} />
-				)}
+												<td>
+													<div className="content-image-container">
+														<Image
+															src={content.images[0]}
+															alt="image"
+															width={200}
+															height={100}
+															layout="responsive"
+															objectFit="cover"
+															priority={false}
+														/>
+													</div>
+												</td>
+
+												<td>
+													<h3>{content.title}</h3>
+												</td>
+
+												<td>
+													<div className="flex gap-2 flex-center">
+														<Link href={`/projects/edit/${content._id}`}>
+															<button>
+																<FaEdit />
+															</button>
+														</Link>
+
+														<Link href={`/projects/delete/${content._id}`}>
+															<button>
+																<RiDeleteBin6Fill />
+															</button>
+														</Link>
+													</div>
+												</td>
+											</tr>
+										))
+									)}
+								</>
+							)}
+						</tbody>
+					</table>
+
+					{/* for pagination */}
+					{publishedContent.length > 0 && (
+						<Pagination paginate={paginate} currentPage={currentPage} totalPages={totalPages} />
+					)}
+				</div>
 			</div>
-		</div>
+		</LoginLayout>
 	)
 }

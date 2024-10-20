@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
-import { Project, DashboardHeader } from '@/components'
+import { Project, DashboardHeader, LoginLayout } from '@/components'
 
 export default function EditProject() {
 	const router = useRouter()
@@ -32,7 +32,7 @@ export default function EditProject() {
 	}, [id])
 
 	return (
-		<>
+		<LoginLayout>
 			<Head>
 				<title>Update Project</title>
 			</Head>
@@ -47,6 +47,6 @@ export default function EditProject() {
 
 				<div className="mt-3">{productInfo && <Project {...productInfo} />}</div>
 			</div>
-		</>
+		</LoginLayout>
 	)
 }

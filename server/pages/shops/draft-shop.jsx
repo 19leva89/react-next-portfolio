@@ -5,7 +5,7 @@ import { FaEdit } from 'react-icons/fa'
 import { RiArrowRightDoubleFill, RiDeleteBin6Fill } from 'react-icons/ri'
 
 import { useFetchData } from '@/hooks/use-fetch-data'
-import { DashboardHeader, DataLoading, Pagination } from '@/components'
+import { DashboardHeader, DataLoading, LoginLayout, Pagination } from '@/components'
 
 export default function DraftShop() {
 	// pagination
@@ -42,100 +42,103 @@ export default function DraftShop() {
 	const draftedContent = currentContent.filter((content) => content.status === 'draft')
 
 	return (
-		<div className="content-page">
-			<DashboardHeader
-				title="All Draft"
-				subtitle="Products"
-				icon={RiArrowRightDoubleFill}
-				breadcrumb="products"
-			/>
+		<LoginLayout>
+			<div className="content-page">
+				<DashboardHeader
+					title="All Draft"
+					subtitle="Products"
+					icon={RiArrowRightDoubleFill}
+					breadcrumb="products"
+				/>
 
-			<div className="contents-table">
-				<div className="flex gap-2 mb-1">
-					<h2>Search Products:</h2>
-					<input
-						type="text"
-						placeholder="Search by title..."
-						value={searchQuery}
-						onChange={(e) => setSearchQuery(e.target.value)}
-					/>
-				</div>
+				<div className="contents-table">
+					<div className="flex gap-2 mb-1">
+						<h2>Search Products:</h2>
+						<input
+							type="text"
+							placeholder="Search by title..."
+							value={searchQuery}
+							onChange={(e) => setSearchQuery(e.target.value)}
+						/>
+					</div>
 
-				<table>
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Image</th>
-							<th>Title</th>
-							<th>Edit / Delete</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						{loading ? (
+					<table>
+						<thead>
 							<tr>
-								<td colSpan={4}>
-									<DataLoading />
-								</td>
+								<th>#</th>
+								<th>Image</th>
+								<th>Title</th>
+								<th>Edit / Delete</th>
 							</tr>
-						) : (
-							<>
-								{draftedContent.length === 0 ? (
-									<tr>
-										<td colSpan={4} className="text-center">
-											No Products Found
-										</td>
-									</tr>
-								) : (
-									draftedContent.map((content, index) => (
-										<tr key={content._id}>
-											<td>{indexOfFirstContent + index + 1}</td>
+						</thead>
 
-											<td>
-												<div className="content-image-container">
-													<Image
-														src={content.images[0]}
-														alt="image"
-														width={200}
-														height={100}
-														layout="responsive"
-														objectFit="cover"
-													/>
-												</div>
-											</td>
-
-											<td>
-												<h3>{content.title}</h3>
-											</td>
-
-											<td>
-												<div className="flex gap-2 flex-center">
-													<Link href={`/shops/edit/${content._id}`}>
-														<button>
-															<FaEdit />
-														</button>
-													</Link>
-
-													<Link href={`/shops/delete/${content._id}`}>
-														<button>
-															<RiDeleteBin6Fill />
-														</button>
-													</Link>
-												</div>
+						<tbody>
+							{loading ? (
+								<tr>
+									<td colSpan={4}>
+										<DataLoading />
+									</td>
+								</tr>
+							) : (
+								<>
+									{draftedContent.length === 0 ? (
+										<tr>
+											<td colSpan={4} className="text-center">
+												No Products Found
 											</td>
 										</tr>
-									))
-								)}
-							</>
-						)}
-					</tbody>
-				</table>
+									) : (
+										draftedContent.map((content, index) => (
+											<tr key={content._id}>
+												<td>{indexOfFirstContent + index + 1}</td>
 
-				{/* for pagination */}
-				{draftedContent.length > 0 && (
-					<Pagination paginate={paginate} currentPage={currentPage} totalPages={totalPages} />
-				)}
+												<td>
+													<div className="content-image-container">
+														<Image
+															src={content.images[0]}
+															alt="image"
+															width={200}
+															height={100}
+															layout="responsive"
+															objectFit="cover"
+															priority={false}
+														/>
+													</div>
+												</td>
+
+												<td>
+													<h3>{content.title}</h3>
+												</td>
+
+												<td>
+													<div className="flex gap-2 flex-center">
+														<Link href={`/shops/edit/${content._id}`}>
+															<button>
+																<FaEdit />
+															</button>
+														</Link>
+
+														<Link href={`/shops/delete/${content._id}`}>
+															<button>
+																<RiDeleteBin6Fill />
+															</button>
+														</Link>
+													</div>
+												</td>
+											</tr>
+										))
+									)}
+								</>
+							)}
+						</tbody>
+					</table>
+
+					{/* for pagination */}
+					{draftedContent.length > 0 && (
+						<Pagination paginate={paginate} currentPage={currentPage} totalPages={totalPages} />
+					)}
+				</div>
 			</div>
-		</div>
+		</LoginLayout>
 	)
 }

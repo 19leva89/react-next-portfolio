@@ -265,6 +265,10 @@ a {
 	text-align: left !important;
 }
 
+.red-color {
+	color: red;
+}
+
 button {
 	cursor: pointer;
 }

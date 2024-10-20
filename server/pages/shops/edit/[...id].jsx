@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
-import { Shop, DashboardHeader } from '@/components'
+import { Shop, DashboardHeader, LoginLayout } from '@/components'
 
 export default function EditProduct() {
 	const router = useRouter()
@@ -32,7 +32,7 @@ export default function EditProduct() {
 	}, [id])
 
 	return (
-		<>
+		<LoginLayout>
 			<Head>
 				<title>Update Product</title>
 			</Head>
@@ -47,6 +47,6 @@ export default function EditProduct() {
 
 				<div className="mt-3">{productInfo && <Shop {...productInfo} />}</div>
 			</div>
-		</>
+		</LoginLayout>
 	)
 }

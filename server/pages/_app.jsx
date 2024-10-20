@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import { SessionProvider } from 'next-auth/react'
 
-import { ParentComponent } from '@/components'
 import '@/styles/globals.css'
+import { ParentComponent } from '@/components'
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps: { session, ...pageProps } }) {
 	const [asideOpen, setAsideOpen] = useState(false)
 
 	const asideClickOpen = () => {
@@ -11,7 +12,7 @@ export default function App({ Component, pageProps }) {
 	}
 
 	return (
-		<>
+		<SessionProvider session={session}>
 			<ParentComponent appOpen={asideOpen} appAsideOpen={asideClickOpen} />
 
 			<main>
@@ -19,6 +20,6 @@ export default function App({ Component, pageProps }) {
 					<Component {...pageProps} />
 				</div>
 			</main>
-		</>
+		</SessionProvider>
 	)
 }

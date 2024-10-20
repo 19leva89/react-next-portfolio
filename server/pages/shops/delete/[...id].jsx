@@ -6,7 +6,7 @@ import { TbTrashX } from 'react-icons/tb'
 import { useState, useEffect } from 'react'
 import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
-import { DashboardHeader } from '@/components'
+import { DashboardHeader, LoginLayout } from '@/components'
 
 export default function DeleteProduct() {
 	const router = useRouter()
@@ -50,7 +50,7 @@ export default function DeleteProduct() {
 	}, [id])
 
 	return (
-		<>
+		<LoginLayout>
 			<Head>
 				<title>Delete Product</title>
 			</Head>
@@ -85,6 +85,6 @@ export default function DeleteProduct() {
 					</div>
 				</div>
 			</div>
-		</>
+		</LoginLayout>
 	)
 }

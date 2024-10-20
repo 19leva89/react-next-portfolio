@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
-import { Blog, DashboardHeader } from '@/components'
+import { Blog, DashboardHeader, LoginLayout } from '@/components'
 
 export default function EditBlog() {
 	const router = useRouter()
@@ -32,7 +32,7 @@ export default function EditBlog() {
 	}, [id])
 
 	return (
-		<>
+		<LoginLayout>
 			<Head>
 				<title>Update Blog</title>
 			</Head>
@@ -47,6 +47,6 @@ export default function EditBlog() {
 
 				<div className="mt-3">{productInfo && <Blog {...productInfo} />}</div>
 			</div>
-		</>
+		</LoginLayout>
 	)
 }
