@@ -13,8 +13,8 @@ export default function Home() {
 	// use this on top for render error
 	const [blogsData, setBlogsData] = useState([])
 	const [projectData, setProjectData] = useState([])
-	const [photosData, setPhotosData] = useState([])
 	const [shopData, setShopData] = useState([])
+	const [photosData, setPhotosData] = useState([])
 	const [loading, setLoading] = useState(true)
 	console.log('blogsData', blogsData)
 
@@ -63,19 +63,19 @@ export default function Home() {
 		const fetchData = async () => {
 			try {
 				const resBlog = await axios.get('/api/blogs')
-				// const resProject = await axios.get('/api/projects')
-				// const resShop = await axios.get('/api/shops')
-				// const resGallery = await axios.get('/api/photos')
+				const resProject = await axios.get('/api/projects')
+				const resShop = await axios.get('/api/shops')
+				const resGallery = await axios.get('/api/photos')
 
 				const dataBlog = await resBlog.data
-				// const dataProject = await resProject.data
-				// const dataShop = await resShop.data
-				// const dataGallery = await resGallery.data
+				const dataProject = await resProject.data
+				const dataShop = await resShop.data
+				const dataGallery = await resGallery.data
 
 				setBlogsData(dataBlog)
-				// setProjectData(dataProject)
-				// setShopData(dataShop)
-				// setPhotosData(dataGallery)
+				setProjectData(dataProject)
+				setShopData(dataShop)
+				setPhotosData(dataGallery)
 
 				setLoading(false)
 			} catch (error) {
@@ -109,17 +109,17 @@ export default function Home() {
 
 					<div className="four-card">
 						<h2>Total Projects</h2>
-						<span>5</span>
+						<span>{projectData.filter((item) => item.status === 'publish').length}</span>
 					</div>
 
 					<div className="four-card">
 						<h2>Total Products</h2>
-						<span>5</span>
+						<span>{shopData.filter((item) => item.status === 'publish').length}</span>
 					</div>
 
 					<div className="four-card">
 						<h2>Gallery Photos</h2>
-						<span>5</span>
+						<span>{photosData.length}</span>
 					</div>
 				</div>
 
