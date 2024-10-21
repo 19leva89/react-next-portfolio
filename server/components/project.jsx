@@ -174,7 +174,7 @@ export const Project = ({
 					<option value="design-system">Design System</option>
 					<option value="website-migration">Website Migration</option>
 					<option value="e-commerce-site">E-commerce Site</option>
-					<option value="perfomance-evaluation">Perfomance Evaluation</option>
+					<option value="performance-evaluation">Performance Evaluation</option>
 				</select>
 			</div>
 
