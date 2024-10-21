@@ -5,8 +5,10 @@ import { useEffect, useState } from 'react'
 import { Spinner } from '@/components'
 import { services } from '@/constants/services'
 
+import { LuMedal } from 'react-icons/lu'
 import { BiDownload } from 'react-icons/bi'
 import { GoArrowUpRight } from 'react-icons/go'
+import { PiGraduationCap } from 'react-icons/pi'
 import { GrLinkedinOption } from 'react-icons/gr'
 import { FaGithub, FaTwitter } from 'react-icons/fa6'
 import { LiaBasketballBallSolid } from 'react-icons/lia'
@@ -67,8 +69,8 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>sobolev - Personal Portfolio</title>
-				<meta name="description" content="sobolev - Personal Portfolio" />
+				<title>Sobolev - Personal Portfolio</title>
+				<meta name="description" content="Sobolev - Personal Portfolio" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="shortcut icon" type="image/png" href="/favicon.png" />
 			</Head>
@@ -308,13 +310,147 @@ export default function Home() {
 			</section>
 
 			{/* Experience study */}
-			<section className="exstudy"></section>
+			<section className="ex-study">
+				<div className="container flex flex-left flex-sb">
+					<div className="experience">
+						<div className="experience-title flex gap-1">
+							<LuMedal />
+							<h2>My Experience</h2>
+						</div>
+
+						<div className="exper-cards">
+							<div className="exper-card">
+								<span>2020 - Present</span>
+								<h3>DVTECH IT SOLUTION</h3>
+								<p>Full Stack Developer</p>
+							</div>
+
+							<div className="exper-card">
+								<span>2018 - 2020</span>
+								<h3>BICKDRIMS LLC.</h3>
+								<p>Front-end Developer (internship)</p>
+							</div>
+
+							<div className="exper-card">
+								<span>2021 - 2023</span>
+								<h3>VAGALLY LLC.</h3>
+								<p>Full Stack Developer</p>
+							</div>
+
+							<div className="exper-card">
+								<span>2021 - 2024</span>
+								<h3>BLOCKDOTS, USA</h3>
+								<p>Full Stack Developer</p>
+							</div>
+						</div>
+					</div>
+
+					<div className="education">
+						<div className="experience-title flex gap-1">
+							<PiGraduationCap />
+							<h2>My Education</h2>
+						</div>
+
+						<div className="exper-cards">
+							<div className="exper-card">
+								<span>2020 - Present</span>
+								<h3>DVTECH IT SOLUTION</h3>
+								<p>Full Stack Developer</p>
+							</div>
+
+							<div className="exper-card">
+								<span>2018 - 2020</span>
+								<h3>BICKDRIMS LLC.</h3>
+								<p>Front-end Developer (internship)</p>
+							</div>
+
+							<div className="exper-card">
+								<span>2021 - 2023</span>
+								<h3>VAGALLY LLC.</h3>
+								<p>Full Stack Developer</p>
+							</div>
+
+							<div className="exper-card">
+								<span>2021 - 2024</span>
+								<h3>BLOCKDOTS, USA</h3>
+								<p>Full Stack Developer</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 			{/* My Skills */}
-			<section className="myskills"></section>
+			<section className="my-skills">
+				<div className="container">
+					<div className="my-skills-title">
+						<h2>My Skills</h2>
+						<p>
+							We put your ideas and thus your wishes in the form of a unique web project that inspires you and
+							your customers
+						</p>
+					</div>
+
+					<div className="my-skills-cards">
+						<div className="my-s-card">
+							<div className="my-s-inner">
+								<img src="/img/python.svg" alt="python" />
+								<h3>92%</h3>
+							</div>
+
+							<p className="text-center">Python</p>
+						</div>
+
+						<div className="my-s-card">
+							<div className="my-s-inner">
+								<img src="/img/firebase.svg" alt="firebase" />
+								<h3>80%</h3>
+							</div>
+
+							<p className="text-center">Firebase</p>
+						</div>
+
+						<div className="my-s-card">
+							<div className="my-s-inner">
+								<img src="/img/mongodb.svg" alt="mongodb" />
+								<h3>98%</h3>
+							</div>
+
+							<p className="text-center">MongoDB</p>
+						</div>
+
+						<div className="my-s-card">
+							<div className="my-s-inner">
+								<img src="/img/redux.svg" alt="redux" />
+								<h3>85%</h3>
+							</div>
+
+							<p className="text-center">Redux</p>
+						</div>
+
+						<div className="my-s-card">
+							<div className="my-s-inner">
+								<img src="/img/react.svg" alt="react" />
+								<h3>99%</h3>
+							</div>
+
+							<p className="text-center">React</p>
+						</div>
+
+						<div className="my-s-card">
+							<div className="my-s-inner">
+								<img src="/img/js.svg" alt="java-script" />
+								<h3>99%</h3>
+							</div>
+
+							<p className="text-center">JavaScript</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
 			{/* Recent Blogs */}
-			<section className="recentblogs"></section>
+			<section className="recent-blogs"></section>
 		</>
 	)
 }

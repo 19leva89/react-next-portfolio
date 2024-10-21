@@ -1314,7 +1314,7 @@ header.sticky {
 }
 
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
-/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ exstudy SECTION */
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ ex-study SECTION */
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 
 .ex-study {
@@ -1450,7 +1450,7 @@ header.sticky {
 }
 
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
-/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ myskills SECTION */
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ my-skills SECTION */
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 
 .my-skills {
@@ -1500,7 +1500,7 @@ header.sticky {
 	color: var(--dark-black);
 }
 
-.my-skils-cards {
+.my-skills-cards {
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -4611,7 +4611,7 @@ header.sticky {
 		max-width: 47%;
 	}
 
-	.my-skils-cards {
+	.my-skills-cards {
 		flex-wrap: wrap;
 	}
 
