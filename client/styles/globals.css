@@ -599,6 +599,7 @@ header.sticky {
 	font-size: 72px;
 	background: linear-gradient(to right, var(--main-site-color) 0%, #fff 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 	margin-bottom: 15px;
 	line-height: 1.2;
@@ -607,6 +608,7 @@ header.sticky {
 .dark .hero-title {
 	background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -713,7 +715,7 @@ header.sticky {
 	position: relative;
 }
 
-.heroimgbox {
+.hero-img-box {
 	display: none;
 }
 
@@ -871,6 +873,7 @@ header.sticky {
 	font-size: 45px;
 	background: linear-gradient(to right, var(--main-site-color) 0%, #dddddd 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 	display: inline-flex;
 	gap: 15px;
@@ -880,6 +883,7 @@ header.sticky {
 .dark .services-titles h2 {
 	background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -1136,6 +1140,7 @@ header.sticky {
 	font-size: 45px;
 	background: linear-gradient(to right, var(--main-site-color) 0%, #dddddd 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 	display: inline-flex;
 	gap: 15px;
@@ -1145,6 +1150,7 @@ header.sticky {
 .dark .project-titles h2 {
 	background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -1346,12 +1352,14 @@ header.sticky {
 	font-size: 45px;
 	background: linear-gradient(to right, var(--main-site-color) 0%, #dddddd 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
 .dark .experience-title h2 {
 	background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -1463,6 +1471,7 @@ header.sticky {
 	font-size: 45px;
 	background: linear-gradient(to right, var(--main-site-color) 0%, #dddddd 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -1470,6 +1479,7 @@ header.sticky {
 	font-size: 45px;
 	background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -1493,12 +1503,12 @@ header.sticky {
 	margin-top: 3rem;
 }
 
-.mys-card {
+.my-s-card {
 	max-width: 180px;
 	text-align: center;
 }
 
-.mys-inner {
+.my-s-inner {
 	position: relative;
 	border-radius: 25px;
 	padding: 2rem 3.5rem;
@@ -1512,11 +1522,11 @@ header.sticky {
 	transition: 0.3s ease-in-out;
 }
 
-.dark .mys-inner {
+.dark .my-s-inner {
 	background: var(--week-white);
 }
 
-.mys-inner::before {
+.my-s-inner::before {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -1529,33 +1539,33 @@ header.sticky {
 	transition: 0.3s ease-in-out;
 }
 
-.mys-card img {
+.my-s-card img {
 	max-width: 70px;
 	margin: 0 auto 30px;
 	transition: 0.3s;
 }
 
-.dark .mys-inner h3 {
+.dark .my-s-inner h3 {
 	color: var(--dark-site-secondary);
 }
 
-.dark .mys-inner:hover h3 {
+.dark .my-s-inner:hover h3 {
 	color: var(--main-hover-color);
 }
 
-.mys-card:hover .mys-inner::before {
+.my-s-card:hover .my-s-inner::before {
 	opacity: 1;
 }
 
-.mys-card:hover .mys-inner {
+.my-s-card:hover .my-s-inner {
 	border: 1px solid var(--main-hover-color);
 }
 
-.mys-card:hover .mys-inner img {
+.my-s-card:hover .my-s-inner img {
 	transform: scale(1.1);
 }
 
-.mys-card p {
+.my-s-card p {
 	color: var(--main-site-color);
 	font-size: 18px;
 }
@@ -1740,12 +1750,14 @@ header.sticky {
 .top-title h1 span {
 	background: linear-gradient(to right, var(--main-site-color) 0%, #dddddd 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
 .dark .top-title h1 span {
 	background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -2031,6 +2043,7 @@ header.sticky {
 .f-post-info h2 a {
 	padding: 0.5rem;
 	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
 	background-color: #151a25;
 	border-radius: 6px;
 }
@@ -2050,7 +2063,6 @@ header.sticky {
 }
 
 /* latestpostssec */
-
 .latest-posts-sec {
 	width: 100%;
 	padding: 20px;
@@ -2140,6 +2152,7 @@ header.sticky {
 	font-size: 1rem;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 3;
+	line-clamp: 3;
 	display: -webkit-box;
 	overflow: hidden;
 	margin-bottom: 0.75rem;
@@ -2199,7 +2212,6 @@ header.sticky {
 }
 
 /* Popular tags section */
-
 .popular-tags-sec {
 	margin-top: 5rem;
 }
@@ -2430,12 +2442,14 @@ header.sticky {
 	margin-bottom: 3rem;
 	background: linear-gradient(to right, #8750f7 0%, #dddddd 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
 .dark .lef-ttitle-sec h1 {
 	background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -2626,12 +2640,14 @@ header.sticky {
 	font-size: 55px;
 	background: linear-gradient(to right, var(--main-site-color) 0%, #dddddd 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
 .dark .top-services h2 {
 	background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -2772,6 +2788,7 @@ header.sticky {
 	font-size: 40px;
 	background: linear-gradient(to right, #8750f7 0%, #dddddd 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -2779,6 +2796,7 @@ header.sticky {
 	font-size: 40px;
 	background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -2912,12 +2930,14 @@ header.sticky {
 	font-size: 55px;
 	background: linear-gradient(to right, #8750f7 0%, #dddddd 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
 .dark .shop-page-top-title h2 {
 	background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -3082,6 +3102,7 @@ header.sticky {
 .left-cont-p h2:nth-child(2) {
 	background: linear-gradient(to right, var(--main-site-color) 0%, #dddddd 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 	margin-bottom: 2.5rem;
 }
@@ -3089,6 +3110,7 @@ header.sticky {
 .dark .left-cont-p h2:nth-child(2) {
 	background: linear-gradient(to right, var(--main-site-color) 0%, var(--dark-site-secondary) 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -3976,6 +3998,7 @@ header.sticky {
 .bc-title {
 	background: linear-gradient(to right, #8750f7 0%, #dddddd 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
