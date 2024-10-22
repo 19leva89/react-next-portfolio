@@ -8,6 +8,7 @@ const blogSchema = new Schema({
 	blogCategory: [{ type: String }],
 	tags: [{ type: String }],
 	status: { type: String },
+	comments: [{ type: Schema.Types.ObjectId, ref: 'Comment', }],
 }, {
 	timestamps: true,
 })

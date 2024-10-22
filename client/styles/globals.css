@@ -1577,7 +1577,7 @@ header.sticky {
 }
 
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
-/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ recentblogs SECTION */
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ recent-blogs SECTION */
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 
 .recent-blogs {
@@ -1590,7 +1590,7 @@ header.sticky {
 	background: var(--week-white);
 }
 
-.recent--blogs {
+.recent_blogs {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -4615,7 +4615,7 @@ header.sticky {
 		flex-wrap: wrap;
 	}
 
-	.recent-blogs {
+	.recent_blogs {
 		flex-wrap: wrap;
 		gap: 2rem;
 	}

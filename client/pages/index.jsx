@@ -1,23 +1,25 @@
+import axios from 'axios'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { Spinner } from '@/components'
 import { services } from '@/constants/services'
+import { formatDate } from '@/constants/format-date'
 
 import { LuMedal } from 'react-icons/lu'
 import { BiDownload } from 'react-icons/bi'
 import { GoArrowUpRight } from 'react-icons/go'
 import { PiGraduationCap } from 'react-icons/pi'
 import { GrLinkedinOption } from 'react-icons/gr'
-import { FaGithub, FaTwitter } from 'react-icons/fa6'
 import { LiaBasketballBallSolid } from 'react-icons/lia'
+import { FaCalendarDays, FaFacebookF, FaGithub, FaTwitter } from 'react-icons/fa6'
 
 export default function Home() {
 	const [activeId, setActiveId] = useState(1)
 	const [loading, setLoading] = useState(true)
-	const [allData, setAllData] = useState([])
-	const [allWork, setAllWork] = useState([])
+	const [allProjects, setAllProjects] = useState([])
+	const [allBlogs, setAllBlogs] = useState([])
 	const [selectedCategory, setSelectedCategory] = useState('all')
 	const [filtredProjects, setFiltredProjects] = useState([])
 
@@ -36,13 +38,13 @@ export default function Home() {
 	useEffect(() => {
 		const fetchAllData = async () => {
 			try {
-				const [projectsResponse, blogsResponse] = await Promise.all([fetch('/api/projects')])
+				const [projectsResponse, blogsResponse] = await Promise.all([
+					axios.get('/api/projects'),
+					axios.get('/api/blogs'),
+				])
 
-				const projectData = await projectsResponse.json()
-				// const blogData = await blogsResponse.json()
-
-				setAllData(projectData)
-				// setAllWork(blogData)
+				setAllProjects(projectsResponse.data)
+				setAllBlogs(blogsResponse.data)
 			} catch (error) {
 				console.error('[PAGES_HOME] Data fetch error:', error)
 			} finally {
@@ -56,15 +58,15 @@ export default function Home() {
 	useEffect(() => {
 		// filter projects based on selected category
 		if (selectedCategory === 'all') {
-			setFiltredProjects(allData.filter((project) => project.status === 'publish'))
+			setFiltredProjects(allProjects.filter((project) => project.status === 'publish'))
 		} else {
 			setFiltredProjects(
-				allData.filter(
+				allProjects.filter(
 					(project) => project.status === 'publish' && project.projectCategory[0] === selectedCategory,
 				),
 			)
 		}
-	}, [selectedCategory, allData])
+	}, [selectedCategory, allProjects])
 
 	return (
 		<>
@@ -103,7 +105,7 @@ export default function Home() {
 							</div>
 
 							<div className="hero-btn-box">
-								<Link href="/" download={'/assets/cv.pdf'} className="download-cv">
+								<Link href="/assets/cv.pdf" target="_blank" download className="download-cv">
 									Download CV <BiDownload />
 								</Link>
 
@@ -111,6 +113,12 @@ export default function Home() {
 									<li>
 										<Link href="#" target="_blank">
 											<FaTwitter />
+										</Link>
+									</li>
+
+									<li>
+										<Link href="https://www.facebook.com/dimochka.sobolev" target="_blank">
+											<FaFacebookF />
 										</Link>
 									</li>
 
@@ -290,9 +298,9 @@ export default function Home() {
 									<h1 className="flex flex-center w-100 mt-3">No projects found</h1>
 								) : (
 									filtredProjects.slice(0, 4).map((project) => (
-										<Link key={project._id} href="#" className="pro-card">
+										<Link key={project._id} href={`/projects/${project.slug}`} className="pro-card">
 											<div className="pro-img-box">
-												<img src={project.images[0]} alt={project.title} />
+												<img src={project.images[0] || '/img/no-image.png'} alt={project.title} />
 											</div>
 
 											<div className="pro-content-box">
@@ -450,7 +458,48 @@ export default function Home() {
 			</section>
 
 			{/* Recent Blogs */}
-			<section className="recent-blogs"></section>
+			<section className="recent-blogs">
+				<div className="container">
+					<div className="my-skills-title">
+						<h2>Recent Blogs</h2>
+						<p>
+							We put your ideas and thus your wishes in the form of a unique web project that inspires you and
+							your customers
+						</p>
+					</div>
+
+					<div className="recent_blogs">
+						{loading ? (
+							<div className="flex flex-center wh_50">
+								<Spinner />
+							</div>
+						) : (
+							<>
+								{allBlogs.length === 0 ? (
+									<h1 className="flex flex-center w-100 mt-3">No blogs found</h1>
+								) : (
+									allBlogs.slice(0, 3).map((blog) => (
+										<Link key={blog._id} href={`/blogs/${blog.slug}`} className="re-blog">
+											<div className="re-blog-img">
+												<img src={blog.images[0] || '/img/no-image.png'} alt={blog.title} />
+												<span>{blog.blogCategory[0]}</span>
+											</div>
+
+											<div className="re-blog-info">
+												<div className="re-top-date flex gap-1">
+													<FaCalendarDays /> <span>{formatDate(new Date(blog.createdAt))}</span>
+												</div>
+
+												<h2>{blog.title}</h2>
+											</div>
+										</Link>
+									))
+								)}
+							</>
+						)}
+					</div>
+				</div>
+			</section>
 		</>
 	)
 }

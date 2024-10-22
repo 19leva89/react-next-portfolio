@@ -141,12 +141,12 @@ export const Blog = ({
 					onChange={(e) => setBlogCategory(Array.from(e.target.selectedOptions, (option) => option.value))}
 					multiple
 				>
-					<option value="nodejs">Node JS</option>
-					<option value="reactjs">React JS</option>
-					<option value="nextjs">Next JS</option>
+					<option value="node js">Node JS</option>
+					<option value="react js">React JS</option>
+					<option value="next js">Next JS</option>
 					<option value="css">CSS</option>
-					<option value="digital-marketing">Digital Marketing</option>
-					<option value="flutter-dev">Flutter Dev</option>
+					<option value="digital marketing">Digital Marketing</option>
+					<option value="flutter dev">Flutter Dev</option>
 					<option value="database">Database</option>
 					<option value="deployment">Deployment</option>
 				</select>

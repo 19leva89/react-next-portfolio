@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
+import { useDarkMode } from '@/hooks/dark-mode-context'
+
 import { LuSunMoon } from 'react-icons/lu'
 import { IoMoonSharp } from 'react-icons/io5'
 import { HiMiniBars3BottomRight } from 'react-icons/hi2'
@@ -10,8 +12,8 @@ export const Header = () => {
 	const router = useRouter()
 	const [mobile, setMobile] = useState(false)
 	const [clicked, setClicked] = useState(false)
-	const [darkMode, setDarkMode] = useState(false)
 	const [activeLink, setActiveLink] = useState('/')
+	const { darkMode, toggleDarkMode } = useDarkMode()
 
 	const handleLinkClick = (link) => {
 		setActiveLink((preActive) => (preActive === link ? null : link))
@@ -26,28 +28,6 @@ export const Header = () => {
 		setMobile(false)
 	}
 
-	const toggleDarkMode = () => {
-		setDarkMode(!darkMode)
-	}
-
-	useEffect(() => {
-		const isDarkMode = localStorage.getItem('darkMode')
-
-		if (isDarkMode === 'true') {
-			setDarkMode(true)
-		}
-	}, [])
-
-	useEffect(() => {
-		if (darkMode) {
-			document.body.classList.add('dark')
-			localStorage.setItem('darkMode', true)
-		} else {
-			document.body.classList.remove('dark')
-			localStorage.setItem('darkMode', false)
-		}
-	}, [darkMode])
-
 	useEffect(() => {
 		setActiveLink(router.pathname)
 	}, [router.pathname])
@@ -57,7 +37,7 @@ export const Header = () => {
 			<nav className="container flex flex-sb">
 				<div className="logo flex gap-2">
 					<Link href="/">
-						<img src={darkMode ? '/img/logo-white.png' : '/img/logo-dark.png'} alt="logo" />
+						<img src={darkMode ? '/img/logo-dark.png' : '/img/logo-white.png'} alt="logo" />
 					</Link>
 
 					<h2>d.sobolev.dev@gmail.com</h2>
@@ -126,7 +106,13 @@ export const Header = () => {
 						</li>
 					</ul>
 
-					<div className="dark-mode-toggle" onClick={toggleDarkMode}>
+					<div
+						className="dark-mode-toggle"
+						onClick={() => {
+							console.log('Dark mode toggled')
+							toggleDarkMode()
+						}}
+					>
 						{darkMode ? <IoMoonSharp /> : <LuSunMoon />}
 					</div>
 
@@ -143,7 +129,7 @@ export const Header = () => {
 					<span className={mobile ? 'active' : ''} onClick={handleMobileClose}></span>
 
 					<div className="mobile-logo">
-						<img src="/img/white.png" alt="logo" />
+						<img src="/img/logo-white.png" alt="logo" />
 
 						<h2>Sobolev</h2>
 					</div>
