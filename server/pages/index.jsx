@@ -172,17 +172,17 @@ export default function Home() {
 								<tbody>
 									<tr>
 										<td>Node JS</td>
-										<td>{blogsData.filter((item) => item.blogCategory[0] === 'node js').length}</td>
+										<td>{blogsData.filter((item) => item.blogCategory[0] === 'node-js').length}</td>
 									</tr>
 
 									<tr>
 										<td>React JS</td>
-										<td>{blogsData.filter((item) => item.blogCategory[0] === 'react js').length}</td>
+										<td>{blogsData.filter((item) => item.blogCategory[0] === 'react-js').length}</td>
 									</tr>
 
 									<tr>
 										<td>Next JS</td>
-										<td>{blogsData.filter((item) => item.blogCategory[0] === 'next js').length}</td>
+										<td>{blogsData.filter((item) => item.blogCategory[0] === 'next-js').length}</td>
 									</tr>
 
 									<tr>
@@ -192,12 +192,12 @@ export default function Home() {
 
 									<tr>
 										<td>Digital Marketing</td>
-										<td>{blogsData.filter((item) => item.blogCategory[0] === 'digital marketing').length}</td>
+										<td>{blogsData.filter((item) => item.blogCategory[0] === 'digital-marketing').length}</td>
 									</tr>
 
 									<tr>
 										<td>Flutter Dev</td>
-										<td>{blogsData.filter((item) => item.blogCategory[0] === 'flutter dev').length}</td>
+										<td>{blogsData.filter((item) => item.blogCategory[0] === 'flutter-dev').length}</td>
 									</tr>
 
 									<tr>

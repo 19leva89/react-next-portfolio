@@ -95,7 +95,7 @@ export default function Projects() {
 												<td>
 													<div className="content-image-container">
 														<Image
-															src={content.images[0]}
+															src={content.images[0] || '/img/no-image.png'}
 															alt="image"
 															width={200}
 															height={100}
