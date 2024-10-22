@@ -280,14 +280,14 @@ img {
 	height: 100%;
 }
 
-.wh_100 {
-	width: 100vw;
-	height: 100vh;
-}
-
 .wh_50 {
 	width: 100vw;
 	height: 50vh;
+}
+
+.wh_100 {
+	width: 100vw;
+	height: 100vh;
 }
 
 a {
@@ -2094,7 +2094,7 @@ header.sticky {
 	font-weight: 600;
 }
 
-/* latestpostssec */
+/* latest posts sec */
 .latest-posts-sec {
 	width: 100%;
 	padding: 20px;
@@ -2157,11 +2157,11 @@ header.sticky {
 	transition: 0.2s ease-in-out;
 }
 
-.l-post:hover .lpostimg img {
+.l-post:hover .l-post-img img {
 	transform: scale(1.02);
 }
 
-.l-postimg .tags {
+.l-post-img .tags {
 	position: absolute;
 	bottom: 0.5rem;
 	left: 1rem;
@@ -2210,35 +2210,44 @@ header.sticky {
 	text-underline-offset: 3px;
 }
 
-.content-paginatio-btn {
-	gap: 1rem;
+/* CSS for pagination buttons */
+.content-pagination {
+	gap: 5px;
 }
 
-.content-pagination-btn button {
-	padding: 1rem 1.5rem;
-	font-size: 1.25rem;
-	line-height: 1.75rem;
-	margin-top: 3rem;
-	background-color: #140c1c;
-	color: #fff;
-	border-radius: 10px;
+.content-pagination button {
+	width: 50px;
+	height: 46px;
 	border: none;
+	border-radius: 10px;
+	color: #fff;
+	background-color: #140c1c;
 	outline: none;
 	cursor: pointer;
 	transition: 0.2s ease-in-out;
 }
 
-.content-pagination-btn button.active {
+.content-pagination button span {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.content-pagination button svg {
+	width: 26px;
+	height: 26px;
+}
+
+.content-pagination button.active {
 	background-color: #4f3ed0;
 	border: 1px solid #7a6fd0;
 }
 
-.content-pagination-btn button:hover {
+.content-pagination button:hover {
 	background-color: #6b5be1;
 	border: 1px solid #7a6fd0;
 }
 
-.content-pagination-btn button:disabled {
+.content-pagination button:disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
 }
@@ -2250,6 +2259,7 @@ header.sticky {
 
 .popu-tags {
 	margin-top: 1rem;
+	margin-bottom: 4rem;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -5076,7 +5086,7 @@ header.sticky {
 		height: 108px;
 	}
 
-	.content-pagination-btn button {
+	.content-pagination button {
 		font-size: 16px;
 		padding: 0.7rem;
 	}

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-import { useDarkMode } from '@/hooks/dark-mode-context'
+import { useDarkMode } from '@/hooks/use-dark-mode'
 
 import { LuSunMoon } from 'react-icons/lu'
 import { IoMoonSharp } from 'react-icons/io5'

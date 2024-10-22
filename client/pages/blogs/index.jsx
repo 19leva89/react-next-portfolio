@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useState } from 'react'
 
-import { Spinner } from '@/components'
+import { Pagination, Spinner } from '@/components'
 import { useFetchData } from '@/hooks/use-fetch-data'
 
 // swiper
@@ -95,7 +95,9 @@ export default function Blogs() {
 											modules={[FreeMode]}
 										>
 											{loading ? (
-												<Spinner />
+												<div className="flex flex-center">
+													<Spinner />
+												</div>
 											) : (
 												sliderPublishedData.slice(0, 6).map((content) => (
 													<SwiperSlide key={content._id}>
@@ -149,29 +151,128 @@ export default function Blogs() {
 							<div className="popu-tags">
 								<Link href="/blogs/category/next-js" className="p-tag">
 									<img src="/img/next-js.png" alt="next js" />
+
+									<div className="tags">
+										<div className="apps">
+											<span />
+											Next JS
+										</div>
+									</div>
 								</Link>
 
 								<Link href="/blogs/category/node-js" className="p-tag">
 									<img src="/img/node-js.png" alt="node js" />
+
+									<div className="tags">
+										<div className="apps">
+											<span />
+											Node JS
+										</div>
+									</div>
 								</Link>
 
 								<Link href="/blogs/category/react-js" className="p-tag">
 									<img src="/img/react-js.gif" alt="react js" />
+
+									<div className="tags">
+										<div className="apps">
+											<span />
+											React JS
+										</div>
+									</div>
 								</Link>
 
 								<Link href="/blogs/category/digital-marketing" className="p-tag">
 									<img src="/img/digital-marketing.png" alt="digital marketing" />
+
+									<div className="tags">
+										<div className="apps">
+											<span />
+											Digital
+										</div>
+									</div>
 								</Link>
 
 								<Link href="/blogs/category/flutter-dev" className="p-tag">
 									<img src="/img/flutter-dev.png" alt="flutter dev" />
+
+									<div className="tags">
+										<div className="apps">
+											<span />
+											Flutter
+										</div>
+									</div>
 								</Link>
 
 								<Link href="/blogs/category/css" className="p-tag">
 									<img src="/img/css.png" alt="css" />
+
+									<div className="tags">
+										<div className="apps">
+											<span />
+											CSS
+										</div>
+									</div>
 								</Link>
 							</div>
 						</div>
+					</div>
+				</section>
+
+				<section className="latest-posts-sec">
+					<div className="container">
+						<div className="border" />
+
+						<div className="latest-posts-data">
+							<div className="fe-title">
+								<h3>Latest Articles:</h3>
+							</div>
+
+							<div className="latest-posts">
+								{loading ? (
+									<div className="flex flex-center wh_50">
+										<Spinner />
+									</div>
+								) : (
+									publishedContent.map((content) => (
+										<div key={content._id} className="l-post">
+											<div className="l-post-img">
+												<Link href={`/blogs/${content.slug}`}>
+													<img src={content.images[0] || '/img/no-image.png'} alt={content.title} />
+												</Link>
+
+												<div className="tags">
+													{content.blogCategory.map((cat) => (
+														<Link href={`blogs/category/${cat}`} className="ai">
+															<span />
+															{cat}
+														</Link>
+													))}
+												</div>
+											</div>
+
+											<div className="l-post-info">
+												<h3>
+													<Link href={`/blogs/${content.slug}`}>{content.title}</Link>
+												</h3>
+
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, autem. </p>
+
+												<h4 className="flex">
+													<img src="/img/coder-white.png" alt="author" />
+													<span>by sobolev</span>
+												</h4>
+											</div>
+										</div>
+									))
+								)}
+							</div>
+						</div>
+
+						{/* for pagination */}
+						{publishedContent.length > 0 && (
+							<Pagination paginate={paginate} currentPage={currentPage} totalPages={totalPages} />
+						)}
 					</div>
 				</section>
 			</div>

@@ -8,7 +8,7 @@ export const Pagination = ({ paginate, currentPage, totalPages }) => {
 	}
 
 	return (
-		<div className="content-pagination">
+		<div className="content-pagination flex flex-center mt-3">
 			<button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
 				<FaArrowAltCircleLeft size={26} />
 			</button>

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 import { Spinner } from '@/components'
 import { services } from '@/constants/services'
-import { formatDate } from '@/constants/format-date'
+import { formatDate } from '@/utils/format-date'
 
 import { LuMedal } from 'react-icons/lu'
 import { BiDownload } from 'react-icons/bi'
@@ -402,7 +402,7 @@ export default function Home() {
 					<div className="my-skills-cards">
 						<div className="my-s-card">
 							<div className="my-s-inner">
-								<img src="/img/python.svg" alt="python" />
+								<img src="/svg/python.svg" alt="python" />
 								<h3>92%</h3>
 							</div>
 
@@ -411,7 +411,7 @@ export default function Home() {
 
 						<div className="my-s-card">
 							<div className="my-s-inner">
-								<img src="/img/firebase.svg" alt="firebase" />
+								<img src="/svg/firebase.svg" alt="firebase" />
 								<h3>80%</h3>
 							</div>
 
@@ -420,7 +420,7 @@ export default function Home() {
 
 						<div className="my-s-card">
 							<div className="my-s-inner">
-								<img src="/img/mongodb.svg" alt="mongodb" />
+								<img src="/svg/mongo-db.svg" alt="mongodb" />
 								<h3>98%</h3>
 							</div>
 
@@ -429,7 +429,7 @@ export default function Home() {
 
 						<div className="my-s-card">
 							<div className="my-s-inner">
-								<img src="/img/redux.svg" alt="redux" />
+								<img src="/svg/redux.svg" alt="redux" />
 								<h3>85%</h3>
 							</div>
 
@@ -438,7 +438,7 @@ export default function Home() {
 
 						<div className="my-s-card">
 							<div className="my-s-inner">
-								<img src="/img/react.svg" alt="react" />
+								<img src="/svg/react.svg" alt="react" />
 								<h3>99%</h3>
 							</div>
 
@@ -447,7 +447,7 @@ export default function Home() {
 
 						<div className="my-s-card">
 							<div className="my-s-inner">
-								<img src="/img/js.svg" alt="java-script" />
+								<img src="/svg/js.svg" alt="java-script" />
 								<h3>99%</h3>
 							</div>
 
