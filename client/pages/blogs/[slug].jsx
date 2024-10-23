@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm'
 import ReactMarkdown from 'react-markdown'
 
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { a11yDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
@@ -41,6 +41,9 @@ const BlogPage = () => {
 		parent: null,
 		parentName: '',
 	})
+
+	// for scroll down to comment form
+	const replyFormRef = useRef(null)
 
 	const createdAtDate =
 		blogData && blogData.blog.createdAt ? new Date(blogData && blogData.blog.createdAt) : null
@@ -119,6 +122,177 @@ const BlogPage = () => {
 				</code>
 			)
 		}
+	}
+
+	const handleCommentSubmit = async (e) => {
+		e.preventDefault()
+
+		try {
+			const res = await axios.post(`/api/blogs/${slug}`, newComment)
+
+			// check for if it`s a reply (nested comment) or a main comment
+			if (newComment.parent) {
+				// add the new comment to it`s parent`s children array
+				setBlogData((prev) => {
+					const updatedComments = prev.comments.map((comment) => {
+						if (comment._id === newComment.parent) {
+							return {
+								...comment,
+								children: [...comment.children, res.data],
+							}
+						} else if (comment.children && comment.children.length > 0) {
+							// recursively update the children comments
+							return {
+								...comment,
+								children: updateChildrenComments(comment.children, newComment.parent, res.data),
+							}
+						}
+
+						return comment
+					})
+
+					return {
+						...prev,
+						comments: updatedComments,
+					}
+				})
+
+				// add new root comment
+			} else {
+				setBlogData((prev) => ({
+					...prev,
+					comments: [res.data, ...prev.comments],
+				}))
+			}
+
+			setMessageOk('✅ Comment posted successfully!')
+
+			setTimeout(() => {
+				setMessageOk('')
+			}, 5000)
+
+			setNewComment({
+				name: '',
+				email: '',
+				title: '',
+				contentPreview: '',
+				mainComment: true,
+				parent: null,
+				parentName: '',
+			})
+		} catch (error) {
+			setMessageOk('❌ Failed to post comment, please try again later.')
+
+			setTimeout(() => {
+				setMessageOk('')
+			}, 5000)
+
+			setError(error.response.data.message)
+		}
+	}
+
+	const handleReply = (parentCommentId, parentName) => {
+		setNewComment({
+			...newComment,
+			parent: parentCommentId,
+			parentName: parentName,
+			mainComment: false,
+		})
+
+		if (replyFormRef.current) {
+			replyFormRef.current.scrollIntoView({ behavior: 'smooth' })
+		}
+	}
+
+	const handleRemoveReply = () => {
+		setNewComment({
+			...newComment,
+			parent: null,
+			parentName: null,
+			mainComment: true,
+		})
+	}
+
+	const updateChildrenComments = (comments, parentId, newComment) => {
+		return comments.map((comment) => {
+			if (comment._id === parentId) {
+				// add new reply to children array
+				return {
+					...comment,
+					children: [...comment.children, newComment],
+				}
+			} else if (comment.children && comment.children.length > 0) {
+				// recursively update the children comments
+				return {
+					...comment,
+					children: updateChildrenComments(comment.children, parentId, newComment),
+				}
+			}
+
+			return comment
+		})
+	}
+
+	const renderComments = (comments) => {
+		if (!comments) {
+			return null
+		}
+
+		// create a map to efficiently find children of each comment
+		const commentsMap = new Map()
+		comments.forEach((comment) => {
+			if (comment.mainComment) {
+				commentsMap.set(comment._id, [])
+			}
+		})
+
+		// populate children comments into their respective parents
+		comments.forEach((comment) => {
+			if (!comment.mainComment && comment.parent) {
+				if (commentsMap.has(comment.parent)) {
+					commentsMap.get(comment.parent).push(comment)
+				}
+			}
+		})
+
+		// render the comments
+		return comments
+			.filter((comment) => comment.mainComment)
+			.map((parentComment) => (
+				<div key={parentComment._id} className="blog-comment">
+					<h3>
+						{parentComment.name} <span>{new Date(parentComment.createdAt).toLocaleString()}</span>
+					</h3>
+
+					<h4>
+						Topic: <span>{parentComment.title}</span>
+					</h4>
+
+					<p>{parentComment.contentPreview}</p>
+
+					<button onClick={() => handleReply(parentComment._id, parentComment.name)}>Reply</button>
+
+					{parentComment.parent && <span className="replied-to">Replied to {parentComment.parentName}</span>}
+
+					<div className="children-comments">
+						{commentsMap.get(parentComment._id).map((childComment) => (
+							<div key={childComment._id} className="child-comment">
+								<h3>
+									{childComment.name} <span>{new Date(childComment.createdAt).toLocaleString()}</span>
+								</h3>
+
+								<span>Replied to {childComment.parentName}</span>
+
+								<h4>
+									Topic: <span>{childComment.title}</span>
+								</h4>
+
+								<p>{childComment.contentPreview}</p>
+							</div>
+						))}
+					</div>
+				</div>
+			))
 	}
 
 	useEffect(() => {
@@ -259,10 +433,55 @@ const BlogPage = () => {
 
 								<div className="blog-use-comments">
 									<h2>Comments:</h2>
-									{}
+									{renderComments(blogData.comments)}
 								</div>
 
-								<div className="blog-slug-comments">{}</div>
+								<div className="blog-slug-comments" ref={replyFormRef}>
+									{}
+
+									{}
+
+									<p>Your email will not be published. Required fields are marked *</p>
+									<form onSubmit={handleCommentSubmit} className="leave-areply-form">
+										<div className="name-email-comment">
+											<input
+												type="text"
+												placeholder="Enter Name"
+												value={newComment.name}
+												onChange={(e) => setNewComment({ ...newComment, name: e.target.value })}
+											/>
+
+											<input
+												type="email"
+												placeholder="Enter Email"
+												value={newComment.email}
+												onChange={(e) => setNewComment({ ...newComment, email: e.target.value })}
+											/>
+										</div>
+
+										<input
+											type="text"
+											placeholder="Enter Title"
+											value={newComment.title}
+											onChange={(e) => setNewComment({ ...newComment, title: e.target.value })}
+										/>
+
+										<textarea
+											name=""
+											rows={4}
+											id="text-comments"
+											placeholder="Enter your Comment"
+											value={newComment.contentPreview}
+											onChange={(e) => setNewComment({ ...newComment, contentPreview: e.target.value })}
+										></textarea>
+
+										<div className="flex gap-2">
+											<button type="submit">Post Comment</button>
+
+											<p>{messageOk}</p>
+										</div>
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>

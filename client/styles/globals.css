@@ -4157,7 +4157,7 @@ header.sticky {
 }
 
 .leave-areply-form button {
-	border-radius: 0.25rem;
+	border-radius: 8px;
 	text-transform: uppercase;
 	font-style: normal;
 	font-weight: 400;
