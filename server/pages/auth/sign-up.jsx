@@ -96,7 +96,7 @@ export default function SignUp() {
 				)}
 
 				<span className="agreement">
-					<a href="/" target="_blank" rel="noreferrer">
+					<a href="/" target="_blank" rel="noopener noreferrer">
 						Learn admin license agreement
 					</a>
 				</span>

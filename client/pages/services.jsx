@@ -7,7 +7,7 @@ export default function Services() {
 				<title>Services</title>
 			</Head>
 
-			<div className="servicespage"></div>
+			<div className="services-page"></div>
 		</>
 	)
 }
