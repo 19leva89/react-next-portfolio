@@ -1,7 +1,9 @@
-import { IoSettingsOutline } from 'react-icons/io5'
-import { MdOutlineAccountCircle } from 'react-icons/md'
+import { signOut } from 'next-auth/react'
 
 import { DashboardHeader, LoginLayout } from '@/components'
+
+import { IoSettingsOutline } from 'react-icons/io5'
+import { MdOutlineAccountCircle } from 'react-icons/md'
 
 export default function Settings() {
 	return (
@@ -55,7 +57,7 @@ export default function Settings() {
 									Active account <br /> <span>Email</span>
 								</h3>
 
-								<button>Logout</button>
+								<button onClick={() => signOut()}>Logout</button>
 							</div>
 						</div>
 					</div>

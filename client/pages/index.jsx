@@ -329,25 +329,25 @@ export default function Home() {
 						<div className="exper-cards">
 							<div className="exper-card">
 								<span>2020 - Present</span>
-								<h3>DVTECH IT SOLUTION</h3>
+								<h3>DVTech IT Solution</h3>
 								<p>Full Stack Developer</p>
 							</div>
 
 							<div className="exper-card">
 								<span>2018 - 2020</span>
-								<h3>BICKDRIMS LLC.</h3>
+								<h3>Bickdrims LLC.</h3>
 								<p>Front-end Developer (internship)</p>
 							</div>
 
 							<div className="exper-card">
 								<span>2021 - 2023</span>
-								<h3>VAGALLY LLC.</h3>
+								<h3>Vagally LLC.</h3>
 								<p>Full Stack Developer</p>
 							</div>
 
 							<div className="exper-card">
 								<span>2021 - 2024</span>
-								<h3>BLOCKDOTS, USA</h3>
+								<h3>BlokDots, USA</h3>
 								<p>Full Stack Developer</p>
 							</div>
 						</div>
@@ -362,25 +362,25 @@ export default function Home() {
 						<div className="exper-cards">
 							<div className="exper-card">
 								<span>2020 - Present</span>
-								<h3>DVTECH IT SOLUTION</h3>
+								<h3>DVTech IT Solution</h3>
 								<p>Full Stack Developer</p>
 							</div>
 
 							<div className="exper-card">
 								<span>2018 - 2020</span>
-								<h3>BICKDRIMS LLC.</h3>
+								<h3>Bickdrims LLC.</h3>
 								<p>Front-end Developer (internship)</p>
 							</div>
 
 							<div className="exper-card">
 								<span>2021 - 2023</span>
-								<h3>VAGALLY LLC.</h3>
+								<h3>Vagally LLC.</h3>
 								<p>Full Stack Developer</p>
 							</div>
 
 							<div className="exper-card">
 								<span>2021 - 2024</span>
-								<h3>BLOCKDOTS, USA</h3>
+								<h3>BlokDots, USA</h3>
 								<p>Full Stack Developer</p>
 							</div>
 						</div>
@@ -482,7 +482,7 @@ export default function Home() {
 										<Link key={blog._id} href={`/blogs/${blog.slug}`} className="re-blog">
 											<div className="re-blog-img">
 												<img src={blog.images[0] || '/img/no-image.png'} alt={blog.title} />
-												<span>{blog.blogCategory[0]}</span>
+												<span>{blog.blogCategory[0].replace('-', ' ')}</span>
 											</div>
 
 											<div className="re-blog-info">

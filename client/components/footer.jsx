@@ -12,7 +12,7 @@ export const Footer = () => {
 					<img src="/img/logo-white.png" alt="logo" />
 				</div>
 
-				<div className="ul flex gap-2">
+				<ul className="flex gap-2">
 					<li>
 						<Link href="/services">Services</Link>
 					</li>
@@ -36,9 +36,9 @@ export const Footer = () => {
 					</li>
 
 					<li>
-						<Link href="/contacts">Contact</Link>
+						<Link href="/contacts">Contacts</Link>
 					</li>
-				</div>
+				</ul>
 
 				<ul className="hero-social">
 					<li>

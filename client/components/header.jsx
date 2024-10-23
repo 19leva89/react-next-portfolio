@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
+import { NavItem } from '@/components'
+import { navItems } from '@/constants/nav-items'
 import { useDarkMode } from '@/hooks/use-dark-mode'
 
 import { LuSunMoon } from 'react-icons/lu'
@@ -45,65 +47,15 @@ export const Header = () => {
 
 				<div className="navlist flex gap-2">
 					<ul className="flex gap-2">
-						<li>
-							<Link
-								href="/"
-								className={activeLink === '/' ? 'active' : ''}
-								onClick={() => handleLinkClick('/')}
-							>
-								Home
-							</Link>
-						</li>
-
-						<li>
-							<Link
-								href="/projects"
-								className={activeLink === '/projects' ? 'active' : ''}
-								onClick={() => handleLinkClick('/projects')}
-							>
-								Projects
-							</Link>
-						</li>
-
-						<li>
-							<Link
-								href="/services"
-								className={activeLink === '/services' ? 'active' : ''}
-								onClick={() => handleLinkClick('/services')}
-							>
-								Services
-							</Link>
-						</li>
-
-						<li>
-							<Link
-								href="/blogs"
-								className={activeLink === '/blogs' ? 'active' : ''}
-								onClick={() => handleLinkClick('/blogs')}
-							>
-								Blogs
-							</Link>
-						</li>
-
-						<li>
-							<Link
-								href="/shops"
-								className={activeLink === '/shops' ? 'active' : ''}
-								onClick={() => handleLinkClick('/shops')}
-							>
-								Shop
-							</Link>
-						</li>
-
-						<li>
-							<Link
-								href="/contacts"
-								className={activeLink === '/contacts' ? 'active' : ''}
-								onClick={() => handleLinkClick('/contacts')}
-							>
-								Contacts
-							</Link>
-						</li>
+						{navItems.map(({ href, label }) => (
+							<NavItem
+								key={href}
+								href={href}
+								label={label}
+								activeLink={activeLink}
+								handleLinkClick={handleLinkClick}
+							/>
+						))}
 					</ul>
 
 					<div
@@ -135,65 +87,15 @@ export const Header = () => {
 					</div>
 
 					<ul className="flex flex-col flex-left gap-1 mt-3" onClick={handleMobileClose}>
-						<li>
-							<Link
-								href="/"
-								className={activeLink === '/' ? 'active' : ''}
-								onClick={() => handleLinkClick('/')}
-							>
-								Home
-							</Link>
-						</li>
-
-						<li>
-							<Link
-								href="/projects"
-								className={activeLink === '/projects' ? 'active' : ''}
-								onClick={() => handleLinkClick('/projects')}
-							>
-								Projects
-							</Link>
-						</li>
-
-						<li>
-							<Link
-								href="/services"
-								className={activeLink === '/services' ? 'active' : ''}
-								onClick={() => handleLinkClick('/services')}
-							>
-								Services
-							</Link>
-						</li>
-
-						<li>
-							<Link
-								href="/blogs"
-								className={activeLink === '/blogs' ? 'active' : ''}
-								onClick={() => handleLinkClick('/blogs')}
-							>
-								Blogs
-							</Link>
-						</li>
-
-						<li>
-							<Link
-								href="/shops"
-								className={activeLink === '/shops' ? 'active' : ''}
-								onClick={() => handleLinkClick('/shops')}
-							>
-								Shop
-							</Link>
-						</li>
-
-						<li>
-							<Link
-								href="/contacts"
-								className={activeLink === '/contacts' ? 'active' : ''}
-								onClick={() => handleLinkClick('/contacts')}
-							>
-								Contacts
-							</Link>
-						</li>
+						{navItems.map(({ href, label }) => (
+							<NavItem
+								key={href}
+								href={href}
+								label={label}
+								activeLink={activeLink}
+								handleLinkClick={handleLinkClick}
+							/>
+						))}
 					</ul>
 
 					<p>Copyright &copy; 2024 | sobolev.in</p>

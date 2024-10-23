@@ -119,9 +119,9 @@ export default function Blogs() {
 
 																	<div className="tags flex flex-nowrap">
 																		{content.blogCategory.map((cat) => (
-																			<Link href={`blogs/category/${cat}`} className="ai">
+																			<Link key={cat} href={`blogs/category/${cat}`} className="ai">
 																				<span />
-																				{cat}
+																				{cat.replace('-', ' ')}
 																			</Link>
 																		))}
 																	</div>
@@ -243,9 +243,9 @@ export default function Blogs() {
 
 												<div className="tags">
 													{content.blogCategory.map((cat) => (
-														<Link href={`blogs/category/${cat}`} className="ai">
+														<Link key={cat} href={`blogs/category/${cat}`} className="ai">
 															<span />
-															{cat}
+															{cat.replace('-', ' ')}
 														</Link>
 													))}
 												</div>
