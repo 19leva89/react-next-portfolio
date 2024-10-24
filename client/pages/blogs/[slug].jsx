@@ -9,17 +9,17 @@ import { useEffect, useRef, useState } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { a11yDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
-import { Spinner } from '@/components'
 import { formatDate } from '@/utils/format-date'
+import { BlogSearch, Spinner } from '@/components'
 import { useFetchData } from '@/hooks/use-fetch-data'
 
 import { BsCopy } from 'react-icons/bs'
 import { CiRead } from 'react-icons/ci'
+import { FiSearch } from 'react-icons/fi'
 import { FaTwitter } from 'react-icons/fa'
 import { SlCalender } from 'react-icons/sl'
 import { BiLogoLinkedin } from 'react-icons/bi'
-import { RiFacebookFill } from 'react-icons/ri'
-import { RiWhatsappFill } from 'react-icons/ri'
+import { RiFacebookFill, RiWhatsappFill } from 'react-icons/ri'
 
 const BlogPage = () => {
 	const router = useRouter()
@@ -31,6 +31,7 @@ const BlogPage = () => {
 	const [copied, setCopied] = useState(false)
 	const [loading, setLoading] = useState(true)
 	const [messageOk, setMessageOk] = useState('')
+	const [searchInput, setSearchInput] = useState(false)
 	const [blogData, setBlogData] = useState({ blog: {}, comments: [] })
 	const [newComment, setNewComment] = useState({
 		name: '',
@@ -295,6 +296,14 @@ const BlogPage = () => {
 			))
 	}
 
+	const handleSearchOpen = () => {
+		setSearchInput(!searchInput)
+	}
+
+	const handleSearchClose = () => {
+		setSearchInput(false)
+	}
+
 	useEffect(() => {
 		const fetchBlogData = async () => {
 			if (slug) {
@@ -437,9 +446,16 @@ const BlogPage = () => {
 								</div>
 
 								<div className="blog-slug-comments" ref={replyFormRef}>
-									{}
+									{newComment.parentName && (
+										<h2 className="flex flex-left gap-05">
+											Leave a reply to <span className="parent-name">{newComment.parentName}</span>
+											<button onClick={handleRemoveReply} className="remove-reply-btn">
+												Remove reply
+											</button>
+										</h2>
+									)}
 
-									{}
+									{!newComment.parentName && <h2>Leave a reply</h2>}
 
 									<p>Your email will not be published. Required fields are marked *</p>
 									<form onSubmit={handleCommentSubmit} className="leave-areply-form">
@@ -483,8 +499,88 @@ const BlogPage = () => {
 									</form>
 								</div>
 							</div>
+
+							<div className="right-side-details">
+								<div className="right-slug-search-bar">
+									<input type="text" placeholder="Search..." onClick={handleSearchOpen} />
+
+									<button>
+										<FiSearch />
+									</button>
+								</div>
+
+								<div className="right-slug-category">
+									<h2>Categories</h2>
+
+									<ul>
+										<Link href={`/blogs/category/node-js`}>
+											<li>
+												Node JS
+												<span>({allData.filter((item) => item.blogCategory[0] === 'node-js').length})</span>
+											</li>
+										</Link>
+
+										<Link href={`/blogs/category/react-js`}>
+											<li>
+												React JS
+												<span>({allData.filter((item) => item.blogCategory[0] === 'react-js').length})</span>
+											</li>
+										</Link>
+
+										<Link href={`/blogs/category/next-js`}>
+											<li>
+												Next JS
+												<span>({allData.filter((item) => item.blogCategory[0] === 'next-js').length})</span>
+											</li>
+										</Link>
+
+										<Link href={`/blogs/category/css`}>
+											<li>
+												CSS
+												<span>({allData.filter((item) => item.blogCategory[0] === 'css').length})</span>
+											</li>
+										</Link>
+
+										<Link href={`/blogs/category/digital-marketing`}>
+											<li>
+												Digital Marketing
+												<span>
+													({allData.filter((item) => item.blogCategory[0] === 'digital-marketing').length})
+												</span>
+											</li>
+										</Link>
+
+										<Link href={`/blogs/category/flutter-dev`}>
+											<li>
+												Flutter Dev
+												<span>
+													({allData.filter((item) => item.blogCategory[0] === 'flutter-dev').length})
+												</span>
+											</li>
+										</Link>
+
+										<Link href={`/blogs/category/database`}>
+											<li>
+												Database
+												<span>({allData.filter((item) => item.blogCategory[0] === 'database').length})</span>
+											</li>
+										</Link>
+
+										<Link href={`/blogs/category/deployment`}>
+											<li>
+												Deployment
+												<span>
+													({allData.filter((item) => item.blogCategory[0] === 'deployment').length})
+												</span>
+											</li>
+										</Link>
+									</ul>
+								</div>
+							</div>
 						</div>
 					</div>
+
+					{searchInput ? <BlogSearch cls={handleSearchClose} /> : null}
 				</div>
 			)}
 		</>

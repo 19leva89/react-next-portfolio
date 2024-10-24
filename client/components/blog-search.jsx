@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { IoClose } from 'react-icons/io5'
-import useFetchData from '@/hooks/use-fetch-data'
+import { useFetchData } from '@/hooks/use-fetch-data'
 
 const extractFirstParagraph = (markdown) => {
 	// Split markdown by double newline to separate paragraphs
@@ -15,8 +15,8 @@ const extractFirstParagraph = (markdown) => {
 export const BlogSearch = (props) => {
 	const { allData } = useFetchData('/api/blogs') // Assuming useFetchData returns an object with allwork and loading
 
-	const [searchResult, setSearchResult] = useState(null)
 	const [blogTitle, setBlogTitle] = useState('') // blog title should be initialized as a string
+	const [searchResult, setSearchResult] = useState(null)
 
 	// filter for published blogs required
 	const publishedData = allData.filter((ab) => ab.status === 'publish')
@@ -59,7 +59,7 @@ export const BlogSearch = (props) => {
 						<>
 							{searchResult.length === 0 ? (
 								<h3>
-									No Blog Found <span>(please chq your spelling)</span>
+									No Blog Found <span>(please check your spelling)</span>
 								</h3>
 							) : (
 								<>

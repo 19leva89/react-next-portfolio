@@ -189,6 +189,15 @@ body {
 
 /* ================================================== */
 
+:root {
+	--main-site-color: #9500ff;
+	--dark-black: #000;
+	--pure-white: #fff;
+	--week-white: #f6f3fc;
+	--dark-site-secondary: #19195c;
+	--main-hover-color: #905ff1;
+}
+
 .container {
 	max-width: 1650px;
 	margin: auto;
@@ -280,7 +289,7 @@ button {
 .header {
 	width: 100%;
 	height: 100px;
-	background-color: #fff;
+	background-color: var(--pure-white);
 	padding: 2rem;
 	position: fixed;
 	top: 0;
@@ -295,7 +304,7 @@ button {
 .logo h1 {
 	position: relative;
 	font-weight: 900;
-	color: #000;
+	color: var(--dark-black);
 }
 
 .logo h1::before {
@@ -339,7 +348,7 @@ button {
 	left: -200px;
 	width: 200px;
 	height: 100vh;
-	background-color: #fff;
+	background-color: var(--pure-white);
 	z-index: 9;
 	box-shadow: 0 0 10px #c4c4c4;
 	transition: 0.3s ease-in-out;
@@ -363,12 +372,12 @@ button {
 
 /* .aside-left ul li.nav-active {
 	background-color: #7e37d8;
-	color: #fff;
+	color: var(--pure-white);
 } */
 
 .nav-actives {
 	background-color: #7e37d8;
-	color: #fff;
+	color: var(--pure-white);
 }
 
 .aside-left ul li svg {
@@ -387,7 +396,7 @@ button {
 
 .aside-left ul li ul li:hover {
 	background-color: #7e37d8;
-	color: #fff;
+	color: var(--pure-white);
 }
 
 .aside-left ul li ul a {
@@ -420,7 +429,7 @@ button {
 
 .logout-btn:hover {
 	background-color: #9664f1;
-	color: #fff;
+	color: var(--pure-white);
 }
 /* ********************************************** */
 /* ******************************* Dashboard Page */
@@ -449,7 +458,7 @@ button {
 }
 
 .title-dashboard h2 span {
-	color: #000;
+	color: var(--dark-black);
 }
 
 .title-dashboard h3 {
@@ -493,7 +502,7 @@ button {
 	height: 250px;
 	background-image: linear-gradient(to bottom right, #9358e0, #571f9e);
 	box-shadow: 2px 12px 26px 3px rgba(126, 55, 216, 0.3);
-	color: #fff;
+	color: var(--pure-white);
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -543,7 +552,7 @@ button {
 	position: relative;
 	width: 65%;
 	height: 600px;
-	background-color: #fff;
+	background-color: var(--pure-white);
 	box-shadow: 0 0 10px #d4d4d4;
 	border-radius: 50px;
 	overflow: hidden;
@@ -582,7 +591,7 @@ button {
 	height: 50px;
 	border-radius: 80% !important;
 	background-color: #7e37d8 !important;
-	color: #fff;
+	color: var(--pure-white);
 }
 
 .creative-dots .semi-big-dot {
@@ -593,7 +602,7 @@ button {
 	top: 42px;
 	border-radius: 100%;
 	background-color: #fe80b2 !important;
-	color: #fff;
+	color: var(--pure-white);
 }
 
 .creative-dots .medium-dot {
@@ -604,7 +613,7 @@ button {
 	left: 18px;
 	top: -5px;
 	background-color: #ffc717 !important;
-	color: #fff;
+	color: var(--pure-white);
 }
 
 .creative-dots .semi-medium-dot {
@@ -615,7 +624,7 @@ button {
 	left: 20px;
 	top: 38px;
 	background-color: #06b5dd !important;
-	color: #fff;
+	color: var(--pure-white);
 }
 
 .creative-dots .semi-small-dot {
@@ -626,7 +635,7 @@ button {
 	left: 32px;
 	top: 23px;
 	background-color: #fe80b2 !important;
-	color: #fff;
+	color: var(--pure-white);
 }
 
 .creative-dots .small-dot {
@@ -637,7 +646,7 @@ button {
 	left: 42px;
 	top: 37px;
 	background-color: #7e37d8 !important;
-	color: #fff;
+	color: var(--pure-white);
 }
 
 .left-year-overview h3,
@@ -657,12 +666,12 @@ button {
 
 .blogs-category table {
 	width: 100%;
-	color: #000;
+	color: var(--dark-black);
 }
 
 .blogs-category thead tr {
 	background-color: rgb(230, 230, 230);
-	color: #000;
+	color: var(--dark-black);
 	font-weight: 900;
 }
 
@@ -731,7 +740,7 @@ button {
 }
 
 .contents-table table tbody {
-	border: 1px solid #000;
+	border: 1px solid var(--dark-black);
 	background-color: #f0f0f0;
 }
 
@@ -750,19 +759,19 @@ button {
 .contents-table table button:hover:nth-child(1) {
 	background-color: rgb(255, 85, 85);
 	border-color: rgb(255, 85, 85);
-	color: #fff;
+	color: var(--pure-white);
 }
 
 .contents-table table button:hover:nth-child(2) {
 	background-color: green;
 	border-color: green;
-	color: #fff;
+	color: var(--pure-white);
 }
 
 .contents-table table button:hover:nth-child(3) {
 	background-color: rgb(14, 130, 198);
 	border-color: rgb(63, 206, 63);
-	color: #fff;
+	color: var(--pure-white);
 }
 
 /* CSS for pagination buttons */
@@ -773,7 +782,7 @@ button {
 	gap: 5px;
 	margin-bottom: 3rem;
 	margin-top: 3rem;
-	color: #000;
+	color: var(--dark-black);
 }
 
 .content-pagination button {
@@ -801,12 +810,12 @@ button {
 
 .content-pagination button:hover {
 	background-color: #667eea;
-	color: #fff;
+	color: var(--pure-white);
 }
 
 .content-pagination button.active {
 	background-color: #667eea;
-	color: #fff;
+	color: var(--pure-white);
 }
 
 .content-pagination button:disabled {
@@ -887,7 +896,7 @@ button {
 	width: 100%;
 	padding: 1rem;
 	background-color: #8667b0;
-	color: #fff;
+	color: var(--pure-white);
 	border-radius: 10px;
 	border: none;
 	outline: none;
@@ -1081,7 +1090,7 @@ button {
 	border-radius: 30px;
 	border: none;
 	background: linear-gradient(to right, #f05f2e, #d0499c);
-	color: #fff;
+	color: var(--pure-white);
 	font-weight: 600;
 }
 
@@ -1110,7 +1119,7 @@ button {
 	border-radius: 30px;
 	border: none;
 	background: linear-gradient(to right, #f05f2e, #d0499c);
-	color: #fff;
+	color: var(--pure-white);
 	font-weight: 600;
 }
 
@@ -1163,7 +1172,7 @@ button {
 .login-front h1 {
 	font-size: 2rem;
 	text-align: center;
-	color: #000;
+	color: var(--dark-black);
 }
 
 .login-front p {
@@ -1178,7 +1187,7 @@ button {
 .login-front button {
 	padding: 10px 20px;
 	background-color: rgb(78, 78, 203);
-	color: #fff;
+	color: var(--pure-white);
 	border: none;
 	outline: none;
 	border-radius: 8px;
@@ -1192,7 +1201,7 @@ button {
 
 .login-front button:is(:hover, :active) {
 	background-color: rgb(136, 136, 234);
-	color: #000;
+	color: var(--dark-black);
 }
 
 .login-front button:active {
@@ -1209,8 +1218,8 @@ button {
 }
 
 .login-pre:hover {
-	background-color: #fff;
-	color: #000;
+	background-color: var(--pure-white);
+	color: var(--dark-black);
 }
 
 /* *************************************************** */
@@ -1504,7 +1513,7 @@ button {
 
 .upload-img-btn {
 	padding: 10px;
-	color: #fff;
+	color: var(--pure-white);
 }
 
 #file-input {
@@ -1542,7 +1551,7 @@ button {
 }
 
 .delete-img button {
-	background-color: #fff;
+	background-color: var(--pure-white);
 	border: 1px solid #999;
 	color: red;
 	padding: 0;
@@ -1554,7 +1563,7 @@ button {
 }
 
 .photo-page-preview button {
-	background-color: #fff;
+	background-color: var(--pure-white);
 	border: 1px solid #999;
 	color: red;
 	padding: 0;
@@ -1567,17 +1576,17 @@ button {
 
 .delete-img button:hover {
 	box-shadow: 0 0 10px black;
-	background-color: #000;
-	color: #fff;
+	background-color: var(--dark-black);
+	color: var(--pure-white);
 }
 
 .existing-category {
-	color: #000;
+	color: var(--dark-black);
 }
 
 .existing-category span {
-	background-color: #fff;
-	color: #000;
+	background-color: var(--pure-white);
+	color: var(--dark-black);
 	border: 1px solid #999;
 	padding: 5px;
 	font-size: 22px;
@@ -1607,7 +1616,7 @@ button {
 }
 
 .contact-info h2 span {
-	color: #000;
+	color: var(--dark-black);
 	font-weight: 600;
 }
 
