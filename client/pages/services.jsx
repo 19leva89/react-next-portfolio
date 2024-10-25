@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function Services() {
+const Services = () => {
 	return (
 		<>
 			<Head>
@@ -11,3 +11,5 @@ export default function Services() {
 		</>
 	)
 }
+
+export default Services

@@ -3765,11 +3765,28 @@ header.sticky {
 
 .right-recent-post h2 {
 	font-size: 22px;
+	text-transform: uppercase;
 	margin-bottom: 2rem;
 }
 
 .dark .right-recent-post h2 {
 	color: var(--dark-black);
+}
+
+.right-recent-post h3 {
+	font-size: 18px;
+}
+
+.right-recent-post h4 {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.right-recent-post h4 span {
+	background-color: #4600ae7c;
+	color: #ffffffc2;
+	padding: 8px;
 }
 
 .right-recent-p {
@@ -3784,28 +3801,12 @@ header.sticky {
 	color: var(--dark-black);
 }
 
-.right-recent-post h3 {
-	font-size: 18px;
-}
-
 .right-recent-p:last-child {
 	margin: 0;
 }
 
 .right-recent-p:hover h3 {
 	color: #8750f7;
-}
-
-.right-recent-post h4 {
-	display: flex;
-	align-items: center;
-	gap: 5px;
-}
-
-.right-recent-post h4 span {
-	background-color: #4600ae7c;
-	color: #ffffffc2;
-	padding: 8px;
 }
 
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */

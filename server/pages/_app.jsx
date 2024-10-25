@@ -4,7 +4,7 @@ import { SessionProvider } from 'next-auth/react'
 import '@/styles/globals.css'
 import { ParentComponent } from '@/components'
 
-export default function App({ Component, pageProps: { session, ...pageProps } }) {
+const App = ({ Component, pageProps: { session, ...pageProps } }) => {
 	const [asideOpen, setAsideOpen] = useState(false)
 
 	const asideClickOpen = () => {
@@ -23,3 +23,5 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
 		</SessionProvider>
 	)
 }
+
+export default App

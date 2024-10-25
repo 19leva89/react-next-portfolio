@@ -1,15 +1,15 @@
-import Head from 'next/head';
+import Head from 'next/head'
 
+const Category = () => {
+	return (
+		<>
+			<Head>
+				<title>Blog category page</title>
+			</Head>
 
-export default function Category() {
-
-
-    return <>
-        <Head>
-            <title>Blog category page</title>
-        </Head>
-        <div className="blogcategory">
-            
-        </div>
-    </>
+			<div className="blog-category"></div>
+		</>
+	)
 }
+
+export default Category

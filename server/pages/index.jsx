@@ -7,7 +7,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 
 import { DashboardHeader, LoginLayout } from '@/components'
 
-export default function Home() {
+const Home = () => {
 	ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 	// use this on top for render error
@@ -218,3 +218,5 @@ export default function Home() {
 		</LoginLayout>
 	)
 }
+
+export default Home

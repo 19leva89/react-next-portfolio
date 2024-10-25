@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function ProjectSlug() {
+const ProjectSlug = () => {
 	return (
 		<>
 			<Head>
@@ -11,3 +11,5 @@ export default function ProjectSlug() {
 		</>
 	)
 }
+
+export default ProjectSlug

@@ -6,7 +6,7 @@ import { RiArrowRightDoubleFill } from 'react-icons/ri'
 import { useFetchData } from '@/hooks/use-fetch-data'
 import { DashboardHeader, DataLoading, LoginLayout, Pagination } from '@/components'
 
-export default function Contacts() {
+const Contacts = () => {
 	// pagination
 	const [currentPage, setCurrentPage] = useState(1)
 	const [perPage] = useState(7)
@@ -133,3 +133,5 @@ export default function Contacts() {
 		</LoginLayout>
 	)
 }
+
+export default Contacts

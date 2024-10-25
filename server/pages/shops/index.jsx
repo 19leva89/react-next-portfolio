@@ -7,7 +7,7 @@ import { RiArrowRightDoubleFill, RiDeleteBin6Fill } from 'react-icons/ri'
 import { useFetchData } from '@/hooks/use-fetch-data'
 import { DashboardHeader, DataLoading, LoginLayout, Pagination } from '@/components'
 
-export default function Shops() {
+const Shops = () => {
 	// pagination
 	const [currentPage, setCurrentPage] = useState(1)
 	const [perPage] = useState(7)
@@ -142,3 +142,5 @@ export default function Shops() {
 		</LoginLayout>
 	)
 }
+
+export default Shops

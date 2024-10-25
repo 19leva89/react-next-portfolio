@@ -11,7 +11,7 @@ import 'swiper/css/pagination'
 import { FreeMode } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-export default function Blogs() {
+const Blogs = () => {
 	// pagination
 	const [currentPage, setCurrentPage] = useState(1)
 	const [perPage] = useState(7)
@@ -279,3 +279,5 @@ export default function Blogs() {
 		</>
 	)
 }
+
+export default Blogs

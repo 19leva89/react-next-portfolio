@@ -2,7 +2,7 @@ import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
 import { Project, DashboardHeader, LoginLayout } from '@/components'
 
-export default function AddProject() {
+const AddProject = () => {
 	return (
 		<LoginLayout>
 			<div className="add-contents-page">
@@ -20,3 +20,5 @@ export default function AddProject() {
 		</LoginLayout>
 	)
 }
+
+export default AddProject

@@ -1,16 +1,15 @@
-import Head from "next/head";
+import Head from 'next/head'
 
-export default function ShopSlug() {
+const ShopSlug = () => {
+	return (
+		<>
+			<Head>
+				<title>Shop Page</title>
+			</Head>
 
-
-	return <>
-		<Head>
-			<title>Shop Page</title>
-		</Head>
-
-		<div className="shopslugpage">
-
-		</div>
-
-	</>
+			<div className="shop-slug-page"></div>
+		</>
+	)
 }
+
+export default ShopSlug

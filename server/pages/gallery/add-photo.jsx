@@ -2,7 +2,7 @@ import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
 import { Photo, DashboardHeader, LoginLayout } from '@/components'
 
-export default function AddPhoto() {
+const AddPhoto = () => {
 	return (
 		<LoginLayout>
 			<div className="add-contents-page">
@@ -15,3 +15,5 @@ export default function AddPhoto() {
 		</LoginLayout>
 	)
 }
+
+export default AddPhoto

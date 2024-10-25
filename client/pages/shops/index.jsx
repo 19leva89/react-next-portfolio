@@ -1,16 +1,15 @@
-import Head from "next/head";
+import Head from 'next/head'
 
-export default function Shop() {
+const Shop = () => {
+	return (
+		<>
+			<Head>
+				<title>Shop</title>
+			</Head>
 
-
-
-	return <>
-
-		<Head>
-			<title>Shop</title>
-		</Head>
-		<div className="shoppage">
-
-		</div>
-	</>
+			<div className="shop-page"></div>
+		</>
+	)
 }
+
+export default Shop

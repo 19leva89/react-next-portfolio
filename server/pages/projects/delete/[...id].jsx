@@ -8,7 +8,7 @@ import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
 import { DashboardHeader, LoginLayout } from '@/components'
 
-export default function DeleteProject() {
+const DeleteProject = () => {
 	const router = useRouter()
 
 	const { id } = router.query
@@ -88,3 +88,5 @@ export default function DeleteProject() {
 		</LoginLayout>
 	)
 }
+
+export default DeleteProject

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 import { Spinner } from '@/components'
 
-export default function SignUp() {
+const SignUp = () => {
 	const router = useRouter()
 	const { data: session, status } = useSession()
 	const [error, setError] = useState('')
@@ -104,3 +104,5 @@ export default function SignUp() {
 		</div>
 	)
 }
+
+export default SignUp

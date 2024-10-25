@@ -1,14 +1,15 @@
-import Head from "next/head";
+import Head from 'next/head'
 
-export default function Projects() {
+const Projects = () => {
+	return (
+		<>
+			<Head>
+				<title>Project</title>
+			</Head>
 
-
-	return <>
-		<Head>
-			<title>Project</title>
-		</Head>
-		<div className="projectpage">
-
-		</div>
-	</>
+			<div className="project-page"></div>
+		</>
+	)
 }
+
+export default Projects

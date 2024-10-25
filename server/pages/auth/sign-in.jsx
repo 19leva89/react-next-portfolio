@@ -6,7 +6,7 @@ import { signIn, useSession } from 'next-auth/react'
 
 import { Spinner } from '@/components'
 
-export default function SignIn() {
+const SignIn = () => {
 	const { data: session, status } = useSession()
 	const router = useRouter()
 	const [loading, setLoading] = useState(false)
@@ -95,3 +95,5 @@ export default function SignIn() {
 		</div>
 	)
 }
+
+export default SignIn

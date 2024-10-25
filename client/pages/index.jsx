@@ -15,7 +15,7 @@ import { GrLinkedinOption } from 'react-icons/gr'
 import { LiaBasketballBallSolid } from 'react-icons/lia'
 import { FaCalendarDays, FaFacebookF, FaGithub, FaTwitter } from 'react-icons/fa6'
 
-export default function Home() {
+const Home = () => {
 	const [activeId, setActiveId] = useState(1)
 	const [loading, setLoading] = useState(true)
 	const [allProjects, setAllProjects] = useState([])
@@ -503,3 +503,5 @@ export default function Home() {
 		</>
 	)
 }
+
+export default Home

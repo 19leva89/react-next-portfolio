@@ -8,7 +8,7 @@ import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
 import { DashboardHeader, LoginLayout } from '@/components'
 
-export default function DeletePhoto() {
+const DeletePhoto = () => {
 	const router = useRouter()
 
 	const { id } = router.query
@@ -88,3 +88,5 @@ export default function DeletePhoto() {
 		</LoginLayout>
 	)
 }
+
+export default DeletePhoto

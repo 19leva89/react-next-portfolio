@@ -8,7 +8,7 @@ import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
 import { DashboardHeader } from '@/components'
 
-export default function DeleteBlog() {
+const DeleteBlog = () => {
 	const router = useRouter()
 
 	const { id } = router.query
@@ -88,3 +88,5 @@ export default function DeleteBlog() {
 		</>
 	)
 }
+
+export default DeleteBlog

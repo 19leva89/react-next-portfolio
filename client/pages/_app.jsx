@@ -2,7 +2,7 @@ import '@/styles/globals.css'
 import { Footer, Header } from '@/components'
 import { DarkModeProvider } from '@/hooks/use-dark-mode'
 
-export default function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
 	return (
 		<DarkModeProvider>
 			<Header />
@@ -15,3 +15,5 @@ export default function App({ Component, pageProps }) {
 		</DarkModeProvider>
 	)
 }
+
+export default App

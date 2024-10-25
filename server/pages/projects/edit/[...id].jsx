@@ -6,7 +6,7 @@ import { RiArrowRightDoubleFill } from 'react-icons/ri'
 
 import { Project, DashboardHeader, LoginLayout } from '@/components'
 
-export default function EditProject() {
+const EditProject = () => {
 	const router = useRouter()
 
 	const { id } = router.query
@@ -50,3 +50,5 @@ export default function EditProject() {
 		</LoginLayout>
 	)
 }
+
+export default EditProject

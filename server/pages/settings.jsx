@@ -5,7 +5,7 @@ import { DashboardHeader, LoginLayout } from '@/components'
 import { IoSettingsOutline } from 'react-icons/io5'
 import { MdOutlineAccountCircle } from 'react-icons/md'
 
-export default function Settings() {
+const Settings = () => {
 	return (
 		<LoginLayout>
 			<div className="setting-page">
@@ -66,3 +66,5 @@ export default function Settings() {
 		</LoginLayout>
 	)
 }
+
+export default Settings

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Spinner } from '@/components'
 import { useFetchData } from '@/hooks/use-fetch-data'
 
-export default function Gallery() {
+const Gallery = () => {
 	const { allData, loading } = useFetchData('/api/photos')
 
 	return (
@@ -77,3 +77,5 @@ export default function Gallery() {
 		</>
 	)
 }
+
+export default Gallery

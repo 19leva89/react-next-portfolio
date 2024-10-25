@@ -1,5 +1,7 @@
 import { LoginLayout } from '@/components'
 
-export default function ViewContact() {
+const ViewContact = () => {
 	return <LoginLayout></LoginLayout>
 }
+
+export default ViewContact

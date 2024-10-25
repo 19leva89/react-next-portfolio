@@ -576,6 +576,24 @@ const BlogPage = () => {
 										</Link>
 									</ul>
 								</div>
+
+								<div className="right-recent-post">
+									<h2>Recent Posts</h2>
+									{allData.slice(0, 3).map((blog) => (
+										<Link key={blog._id} href={`/blogs/${blog.slug}`} className="right-recent-p">
+											<img src={blog.images[0] || '/img/no-image.png'} alt={blog.title} />
+
+											<div>
+												<h3>{blog.title}</h3>
+												<h4 className="mt-1">
+													{blog.tags.map((tag) => {
+														return <span key={tag}>{tag}</span>
+													})}
+												</h4>
+											</div>
+										</Link>
+									))}
+								</div>
 							</div>
 						</div>
 					</div>
