@@ -482,7 +482,7 @@ const Home = () => {
 										<Link key={blog._id} href={`/blogs/${blog.slug}`} className="re-blog">
 											<div className="re-blog-img">
 												<img src={blog.images[0] || '/img/no-image.png'} alt={blog.title} />
-												<span>{blog.blogCategory[0].replace('-', ' ')}</span>
+												<span>{blog.blogCategory[0].replace(/-/g, ' ')}</span>
 											</div>
 
 											<div className="re-blog-info">

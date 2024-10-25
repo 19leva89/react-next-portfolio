@@ -324,6 +324,27 @@ li {
 }
 
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Swiper Component */
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+
+/* Основной контейнер */
+.swiper {
+	background-color: transparent;
+	padding: 10px;
+	border-radius: 8px;
+}
+
+/* Кастомизация слайдов */
+.swiper-slide {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #333;
+	color: #fff;
+	border-radius: 5px;
+}
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Header Component */
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 
@@ -1975,6 +1996,10 @@ header.sticky {
 .tags {
 	display: flex;
 	gap: 12px;
+	/* overflow-x: hidden; */
+	max-width: 100%;
+	white-space: nowrap;
+	/* scroll-behavior: smooth; */
 	/* margin-bottom: 0.75rem; */
 	text-transform: capitalize;
 }
@@ -2737,7 +2762,7 @@ header.sticky {
 	margin: 20px auto;
 }
 
-.c-service {
+.cs-service {
 	position: relative;
 	border: 1px solid #2a1f81;
 	padding: 1.5rem;
@@ -2747,7 +2772,7 @@ header.sticky {
 	overflow: hidden;
 }
 
-.c-service h2 {
+.cs-service h2 {
 	font-size: 28px;
 	margin-bottom: 1rem;
 	background-image: linear-gradient(
@@ -2760,26 +2785,26 @@ header.sticky {
 	text-align: center;
 }
 
-.c-service:hover {
+.cs-service:hover {
 	border-color: var(--main-site-color);
 	box-shadow: 0 0 10px var(--main-site-color);
 }
 
-.c-service img {
+.cs-service img {
 	width: 70px;
 }
 
-.c-service ul li {
+.cs-service ul li {
 	position: relative;
 	margin: 1rem 0;
 	padding-left: 20px;
 }
 
-.dark .c-service ul li {
+.dark .cs-service ul li {
 	color: var(--dark-black);
 }
 
-.c-service ul li::before {
+.cs-service ul li::before {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -2791,15 +2816,15 @@ header.sticky {
 	border-radius: 50%;
 }
 
-.c-service p {
+.cs-service p {
 	color: #999;
 }
 
-.dark .c-service p {
+.dark .cs-service p {
 	color: #444;
 }
 
-.c-service span {
+.cs-service span {
 	position: absolute;
 	right: -25px;
 	top: 150px;
@@ -2809,7 +2834,7 @@ header.sticky {
 	color: #171937;
 }
 
-.dark .c-service span {
+.dark .cs-service span {
 	color: #c5c5c5;
 }
 
@@ -2830,6 +2855,7 @@ header.sticky {
 .pricing-title h3 {
 	font-size: 22px;
 	font-weight: 500;
+	text-transform: uppercase;
 	margin-bottom: 1rem;
 }
 
@@ -2857,6 +2883,7 @@ header.sticky {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	gap: 1rem;
 }
 
 .pricing-card {

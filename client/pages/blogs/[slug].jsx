@@ -26,6 +26,7 @@ const BlogPage = () => {
 
 	const { slug } = router.query
 	const { allData } = useFetchData(`/api/blogs`)
+	console.log('allData', allData)
 
 	const [error, setError] = useState(null)
 	const [copied, setCopied] = useState(false)
@@ -337,7 +338,7 @@ const BlogPage = () => {
 	return (
 		<>
 			<Head>
-				<title>{slug ? slug.replace('-', ' ') : 'Loading...'}</title>
+				<title>{slug ? slug.replace(/-/g, ' ') : 'Loading...'}</title>
 			</Head>
 
 			{blogData && (
@@ -516,28 +517,28 @@ const BlogPage = () => {
 										<Link href={`/blogs/category/node-js`}>
 											<li>
 												Node JS
-												<span>({allData.filter((item) => item.blogCategory[0] === 'node-js').length})</span>
+												<span>{allData.filter((item) => item.blogCategory.includes('node-js')).length}</span>
 											</li>
 										</Link>
 
 										<Link href={`/blogs/category/react-js`}>
 											<li>
 												React JS
-												<span>({allData.filter((item) => item.blogCategory[0] === 'react-js').length})</span>
+												<span>{allData.filter((item) => item.blogCategory.includes('react-js')).length}</span>
 											</li>
 										</Link>
 
 										<Link href={`/blogs/category/next-js`}>
 											<li>
 												Next JS
-												<span>({allData.filter((item) => item.blogCategory[0] === 'next-js').length})</span>
+												<span>{allData.filter((item) => item.blogCategory.includes('next-js')).length}</span>
 											</li>
 										</Link>
 
 										<Link href={`/blogs/category/css`}>
 											<li>
 												CSS
-												<span>({allData.filter((item) => item.blogCategory[0] === 'css').length})</span>
+												<span>{allData.filter((item) => item.blogCategory.includes('css')).length}</span>
 											</li>
 										</Link>
 
@@ -545,7 +546,7 @@ const BlogPage = () => {
 											<li>
 												Digital Marketing
 												<span>
-													({allData.filter((item) => item.blogCategory[0] === 'digital-marketing').length})
+													{allData.filter((item) => item.blogCategory.includes('digital-marketing')).length}
 												</span>
 											</li>
 										</Link>
@@ -554,7 +555,7 @@ const BlogPage = () => {
 											<li>
 												Flutter Dev
 												<span>
-													({allData.filter((item) => item.blogCategory[0] === 'flutter-dev').length})
+													{allData.filter((item) => item.blogCategory.includes('flutter-dev')).length}
 												</span>
 											</li>
 										</Link>
@@ -562,7 +563,7 @@ const BlogPage = () => {
 										<Link href={`/blogs/category/database`}>
 											<li>
 												Database
-												<span>({allData.filter((item) => item.blogCategory[0] === 'database').length})</span>
+												<span>{allData.filter((item) => item.blogCategory.includes('database')).length}</span>
 											</li>
 										</Link>
 
@@ -570,7 +571,7 @@ const BlogPage = () => {
 											<li>
 												Deployment
 												<span>
-													({allData.filter((item) => item.blogCategory[0] === 'deployment').length})
+													{allData.filter((item) => item.blogCategory.includes('deployment')).length}
 												</span>
 											</li>
 										</Link>
