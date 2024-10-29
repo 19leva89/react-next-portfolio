@@ -259,9 +259,9 @@ export const Blog = ({
 				>
 					<option value="html">HTML</option>
 					<option value="css">CSS</option>
-					<option value="javascript">Java Script</option>
-					<option value="nextjs">Next JS</option>
-					<option value="reactjs">React JS</option>
+					<option value="java-script">Java Script</option>
+					<option value="next-js">Next JS</option>
+					<option value="react-js">React JS</option>
 					<option value="database">Database</option>
 				</select>
 			</div>

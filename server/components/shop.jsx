@@ -262,12 +262,13 @@ export const Shop = ({
 					onChange={(e) => setTags(Array.from(e.target.selectedOptions, (option) => option.value))}
 					multiple
 				>
-					<option value="html">HTML</option>
-					<option value="css">CSS</option>
-					<option value="javascript">Java Script</option>
-					<option value="nextjs">Next JS</option>
-					<option value="reactjs">React JS</option>
-					<option value="database">Database</option>
+					<option value="adapter">Adapter</option>
+					<option value="usb-c">USB C</option>
+					<option value="graphic">Graphic</option>
+					<option value="gimbal">Gimbal</option>
+					<option value="content-creators">Content Creators</option>
+					<option value="desk">Desk</option>
+					<option value="standing-desk">Standing Desk</option>
 				</select>
 			</div>
 

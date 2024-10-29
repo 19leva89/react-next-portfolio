@@ -324,27 +324,6 @@ li {
 }
 
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
-/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Swiper Component */
-/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
-
-/* Основной контейнер */
-.swiper {
-	background-color: transparent;
-	padding: 10px;
-	border-radius: 8px;
-}
-
-/* Кастомизация слайдов */
-.swiper-slide {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #333;
-	color: #fff;
-	border-radius: 5px;
-}
-
-/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Header Component */
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 
@@ -1996,10 +1975,8 @@ header.sticky {
 .tags {
 	display: flex;
 	gap: 12px;
-	/* overflow-x: hidden; */
 	max-width: 100%;
 	white-space: nowrap;
-	/* scroll-behavior: smooth; */
 	/* margin-bottom: 0.75rem; */
 	text-transform: capitalize;
 }
@@ -2018,6 +1995,50 @@ header.sticky {
 
 .dark .tags a,
 .dark .tags div {
+	background-color: var(--dark-black);
+	color: var(--pure-white);
+}
+
+.tagsSwiper {
+	position: absolute;
+	left: 0.25rem;
+	bottom: 0.25rem;
+	width: 100%;
+	z-index: 1;
+}
+
+.tagsSwiper div {
+	display: flex;
+	gap: 12px;
+	max-width: 100%;
+	white-space: nowrap;
+	/* margin-bottom: 0.75rem; */
+	text-transform: capitalize;
+	background-color: transparent;
+}
+
+.tagsSwiper div a,
+.tagsSwiper div div {
+	background-color: var(--pure-white);
+	color: var(--dark-black);
+	padding: 3px 6px;
+	border-radius: 15px;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: capitalize;
+	transition: 0.2s ease;
+}
+
+.tagsSwiper div a {
+	background-color: transparent;
+}
+
+.tagsSwiper div div:hover {
+	background-color: #8750f7;
+}
+
+.dark .tagsSwiper div a,
+.dark .tagsSwiper div div {
 	background-color: var(--dark-black);
 	color: var(--pure-white);
 }
@@ -2199,6 +2220,7 @@ header.sticky {
 	position: absolute;
 	bottom: 0.5rem;
 	left: 1rem;
+	right: 1rem;
 }
 
 .l-post-info h3 {
@@ -3008,6 +3030,7 @@ header.sticky {
 
 .shop-page-top-title h2 {
 	font-size: 55px;
+	text-transform: uppercase;
 	background: linear-gradient(to right, #8750f7 0%, #dddddd 100%);
 	-webkit-background-clip: text;
 	background-clip: text;
@@ -3023,6 +3046,7 @@ header.sticky {
 
 .shop-page-top-title h3 {
 	font-size: 30px;
+	text-transform: uppercase;
 	margin-bottom: 1rem;
 	font-weight: 500;
 }
@@ -3080,7 +3104,7 @@ header.sticky {
 	color: var(--dark-black);
 }
 
-.s-ppro-card h3 {
+.sp-pro-card h3 {
 	font-size: 25px;
 	margin-bottom: 1rem;
 }
@@ -3112,6 +3136,10 @@ header.sticky {
 
 .sp-pro-card:hover h2 {
 	color: var(--main-site-color);
+}
+
+.sp-pro-tags span {
+	text-transform: uppercase;
 }
 
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
@@ -4499,13 +4527,13 @@ header.sticky {
 	width: auto;
 }
 
-.ps-descri h2 {
+.ps-desc h2 {
 	position: relative;
 	font-size: 35px;
 	padding-bottom: 1rem;
 }
 
-.ps-descri h2::before {
+.ps-desc h2::before {
 	content: '';
 	position: absolute;
 	bottom: 0;

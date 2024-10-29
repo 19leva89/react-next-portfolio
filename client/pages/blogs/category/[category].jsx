@@ -2,11 +2,11 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { FreeMode } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { Pagination, Spinner } from '@/components'
 import { useFetchData } from '@/hooks/use-fetch-data'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
 
 const Category = () => {
 	const router = useRouter()
@@ -58,10 +58,12 @@ const Category = () => {
 									Category{' '}
 									<span>
 										{category
-											.replace(/-/g, ' ')
-											.split(' ')
-											.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-											.join(' ')}
+											? category
+													.replace(/-/g, ' ')
+													.split(' ')
+													.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+													.join(' ')
+											: 'Loading...'}
 									</span>
 								</h1>
 							</div>
@@ -77,11 +79,12 @@ const Category = () => {
 							<div className="fe-title">
 								<h3>
 									{category
-										.replace(/-/g, ' ')
-										.split(' ')
-										.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-										.join(' ')}{' '}
-									articles:
+										? category
+												.replace(/-/g, ' ')
+												.split(' ')
+												.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+												.join(' ') + ' articles'
+										: 'Loading...'}
 								</h3>
 							</div>
 
@@ -98,18 +101,23 @@ const Category = () => {
 													<img src={content.images[0] || '/img/no-image.png'} alt={content.title} />
 												</Link>
 
-												<div className="tags">
-													<Swiper spaceBetween={1} slidesPerView="auto" freeMode grabCursor>
-														{content.blogCategory.map((cat) => (
-															<SwiperSlide key={cat}>
-																<Link key={cat} href={`blogs/category/${cat}`} className="ai">
-																	<span />
-																	{cat.replace(/-/g, ' ')}
-																</Link>
-															</SwiperSlide>
-														))}
-													</Swiper>
-												</div>
+												<Swiper
+													slidesPerView={'auto'}
+													spaceBetween={0}
+													freeMode={true}
+													grabCursor={true}
+													modules={[FreeMode]}
+													className="tagsSwiper"
+												>
+													{content.blogCategory.map((cat, index) => (
+														<SwiperSlide key={index}>
+															<Link href={cat} className="ai">
+																<span />
+																{cat.replace(/-/g, ' ')}
+															</Link>
+														</SwiperSlide>
+													))}
+												</Swiper>
 											</div>
 
 											<div className="l-post-info">
