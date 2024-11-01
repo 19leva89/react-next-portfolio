@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useState } from 'react'
 
-import { Pagination, Spinner } from '@/components'
 import { useFetchData } from '@/hooks/use-fetch-data'
+import { BlogSearch, Pagination, Spinner } from '@/components'
 
 // swiper
 import 'swiper/css'
@@ -18,6 +18,7 @@ const Blogs = () => {
 
 	// search
 	const [searchQuery, setSearchQuery] = useState('')
+	const [searchInput, setSearchInput] = useState(false)
 
 	// fetch content data
 	const { allData, loading } = useFetchData('/api/blogs')
@@ -47,6 +48,14 @@ const Blogs = () => {
 
 	const sliderPublishedData = allData.filter((content) => content.status === 'publish')
 
+	const handleSearchOpen = () => {
+		setSearchInput(!searchInput)
+	}
+
+	const handleSearchClose = () => {
+		setSearchInput(false)
+	}
+
 	return (
 		<>
 			<Head>
@@ -69,7 +78,7 @@ const Blogs = () => {
 
 								<div className="sub-email">
 									<form action="" className="flex">
-										<input type="text" placeholder="Search blogs here..." />
+										<input onClick={handleSearchOpen} type="text" placeholder="Search blogs here..." />
 
 										<button>Search</button>
 									</form>
@@ -274,6 +283,8 @@ const Blogs = () => {
 							<Pagination paginate={paginate} currentPage={currentPage} totalPages={totalPages} />
 						)}
 					</div>
+
+					{searchInput ? <BlogSearch cls={handleSearchClose} /> : null}
 				</section>
 			</div>
 		</>
