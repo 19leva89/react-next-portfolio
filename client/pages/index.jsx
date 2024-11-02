@@ -3,9 +3,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-import { Spinner } from '@/components'
 import { services } from '@/constants/services'
 import { formatDate } from '@/utils/format-date'
+import { Spinner, TypingAnimation } from '@/components'
 
 import { LuMedal } from 'react-icons/lu'
 import { BiDownload } from 'react-icons/bi'
@@ -91,20 +91,31 @@ const Home = () => {
 					<div className="flex w-100">
 						{/* left side section */}
 						<div className="hero-info-left">
-							<span className="hero-sb-title">I'm Dmitry</span>
+							<span className="hero-sb-title" data-aos="fade-right">
+								I'm Dmitry
+							</span>
 
-							<h1 className="hero-title">Full Stack Developer</h1>
+							<h1 className="hero-title" data-aos="fade-right">
+								Web Developer +
+								<br />
+								<TypingAnimation />
+							</h1>
 
-							<div className="hero_img_box hero-img-box">
+							<div
+								className="hero_img_box hero-img-box"
+								data-aos="flip-left"
+								data-aos-easing="ease-out-cubic"
+								data-aos-duration="2000"
+							>
 								<img src="/img/me.png" alt="coder" />
 							</div>
 
-							<div className="lead">
+							<div className="lead" data-aos="fade-up">
 								I break down complex user experience problems to create integrity focused solutions that
 								connect billions of people
 							</div>
 
-							<div className="hero-btn-box">
+							<div className="hero-btn-box" data-aos="fade-up">
 								<Link href="/assets/cv.pdf" target="_blank" download className="download-cv">
 									Download CV <BiDownload />
 								</Link>
@@ -145,14 +156,19 @@ const Home = () => {
 
 						{/* right side image section */}
 						<div className="hero-image-right">
-							<div className="hero_img_box">
+							<div
+								className="hero_img_box"
+								data-aos="flip-left"
+								data-aos-easing="ease-out-cubic"
+								data-aos-duration="2000"
+							>
 								<img src="/img/me.png" alt="coder" />
 							</div>
 						</div>
 					</div>
 
 					<div className="funfect-area flex flex-sb">
-						<div className="funfect-item">
+						<div className="funfect-item" data-aos="fade-right">
 							<h3>1+</h3>
 
 							<h4>
@@ -160,7 +176,7 @@ const Home = () => {
 							</h4>
 						</div>
 
-						<div className="funfect-item">
+						<div className="funfect-item" data-aos="fade-right">
 							<h3>18+</h3>
 
 							<h4>
@@ -168,7 +184,7 @@ const Home = () => {
 							</h4>
 						</div>
 
-						<div className="funfect-item">
+						<div className="funfect-item" data-aos="fade-left">
 							<h3>5</h3>
 
 							<h4>
@@ -176,7 +192,7 @@ const Home = () => {
 							</h4>
 						</div>
 
-						<div className="funfect-item">
+						<div className="funfect-item" data-aos="fade-left">
 							<h3>12+</h3>
 
 							<h4>
@@ -191,15 +207,15 @@ const Home = () => {
 			<section className="services">
 				<div className="container">
 					<div className="services-title">
-						<h2>My Quality Services</h2>
+						<h2 data-aos="fade-up">My Quality Services</h2>
 
-						<p>
+						<p data-aos="fade-up">
 							We put your ideas and thus your wishes in the form of a unique web project that inspires you and
 							your customers
 						</p>
 					</div>
 
-					<div className="services-menu">
+					<div className="services-menu" data-aos="fade-up">
 						{services.map((service) => (
 							<div
 								key={service.id}
@@ -228,15 +244,21 @@ const Home = () => {
 			<section className="projects">
 				<div className="container">
 					<div className="projects-title">
-						<h2>My Recent Works</h2>
+						<h2 data-aos="fade-up">My Recent Works</h2>
 
-						<p>
+						<p data-aos="fade-up">
 							We put your ideas and thus your wishes in the form of a unique web project that inspires you and
 							your customers
 						</p>
 					</div>
 
-					<div className="projects-button">
+					<div
+						className="projects-button"
+						data-aos="fade-zoom-in"
+						data-aos-easing="ease-in-back"
+						data-aos-delay="300"
+						data-aos-offset="0"
+					>
 						<button
 							className={selectedCategory === 'all' ? 'active' : ''}
 							onClick={() => setSelectedCategory('all')}
@@ -298,7 +320,14 @@ const Home = () => {
 									<h1 className="flex flex-center w-100 mt-3">No projects found</h1>
 								) : (
 									filtredProjects.slice(0, 4).map((project) => (
-										<Link key={project._id} href={`/projects/${project.slug}`} className="pro-card">
+										<Link
+											key={project._id}
+											href={`/projects/${project.slug}`}
+											className="pro-card"
+											data-aos="flip-left"
+											data-aos-easing="ease-out-cubic"
+											data-aos-duration="2000"
+										>
 											<div className="pro-img-box">
 												<img src={project.images[0] || '/img/no-image.png'} alt={project.title} />
 											</div>
@@ -321,31 +350,31 @@ const Home = () => {
 			<section className="ex-study">
 				<div className="container flex flex-left flex-sb">
 					<div className="experience">
-						<div className="experience-title flex gap-1">
+						<div className="experience-title flex gap-1" data-aos="fade-right">
 							<LuMedal />
 							<h2>My Experience</h2>
 						</div>
 
 						<div className="exper-cards">
-							<div className="exper-card">
+							<div className="exper-card" data-aos="fade-up">
 								<span>2020 - Present</span>
 								<h3>DVTech IT Solution</h3>
 								<p>Full Stack Developer</p>
 							</div>
 
-							<div className="exper-card">
+							<div className="exper-card" data-aos="fade-up">
 								<span>2018 - 2020</span>
 								<h3>Bickdrims LLC.</h3>
 								<p>Front-end Developer (internship)</p>
 							</div>
 
-							<div className="exper-card">
+							<div className="exper-card" data-aos="fade-up">
 								<span>2021 - 2023</span>
 								<h3>Vagally LLC.</h3>
 								<p>Full Stack Developer</p>
 							</div>
 
-							<div className="exper-card">
+							<div className="exper-card" data-aos="fade-up">
 								<span>2021 - 2024</span>
 								<h3>BlokDots, USA</h3>
 								<p>Full Stack Developer</p>
@@ -354,31 +383,31 @@ const Home = () => {
 					</div>
 
 					<div className="education">
-						<div className="experience-title flex gap-1">
+						<div className="experience-title flex gap-1" data-aos="fade-left">
 							<PiGraduationCap />
 							<h2>My Education</h2>
 						</div>
 
 						<div className="exper-cards">
-							<div className="exper-card">
+							<div className="exper-card" data-aos="fade-up">
 								<span>2020 - Present</span>
 								<h3>DVTech IT Solution</h3>
 								<p>Full Stack Developer</p>
 							</div>
 
-							<div className="exper-card">
+							<div className="exper-card" data-aos="fade-up">
 								<span>2018 - 2020</span>
 								<h3>Bickdrims LLC.</h3>
 								<p>Front-end Developer (internship)</p>
 							</div>
 
-							<div className="exper-card">
+							<div className="exper-card" data-aos="fade-up">
 								<span>2021 - 2023</span>
 								<h3>Vagally LLC.</h3>
 								<p>Full Stack Developer</p>
 							</div>
 
-							<div className="exper-card">
+							<div className="exper-card" data-aos="fade-up">
 								<span>2021 - 2024</span>
 								<h3>BlokDots, USA</h3>
 								<p>Full Stack Developer</p>
@@ -392,15 +421,15 @@ const Home = () => {
 			<section className="my-skills">
 				<div className="container">
 					<div className="my-skills-title">
-						<h2>My Skills</h2>
-						<p>
+						<h2 data-aos="fade-up">My Skills</h2>
+						<p data-aos="fade-up">
 							We put your ideas and thus your wishes in the form of a unique web project that inspires you and
 							your customers
 						</p>
 					</div>
 
 					<div className="my-skills-cards">
-						<div className="my-s-card">
+						<div className="my-s-card" data-aos="fade-right">
 							<div className="my-s-inner">
 								<img src="/svg/python.svg" alt="python" />
 								<h3>92%</h3>
@@ -409,7 +438,7 @@ const Home = () => {
 							<p className="text-center">Python</p>
 						</div>
 
-						<div className="my-s-card">
+						<div className="my-s-card" data-aos="fade-right">
 							<div className="my-s-inner">
 								<img src="/svg/firebase.svg" alt="firebase" />
 								<h3>80%</h3>
@@ -418,7 +447,7 @@ const Home = () => {
 							<p className="text-center">Firebase</p>
 						</div>
 
-						<div className="my-s-card">
+						<div className="my-s-card" data-aos="fade-right">
 							<div className="my-s-inner">
 								<img src="/svg/mongo-db.svg" alt="mongodb" />
 								<h3>98%</h3>
@@ -427,7 +456,7 @@ const Home = () => {
 							<p className="text-center">MongoDB</p>
 						</div>
 
-						<div className="my-s-card">
+						<div className="my-s-card" data-aos="fade-left">
 							<div className="my-s-inner">
 								<img src="/svg/redux.svg" alt="redux" />
 								<h3>85%</h3>
@@ -436,7 +465,7 @@ const Home = () => {
 							<p className="text-center">Redux</p>
 						</div>
 
-						<div className="my-s-card">
+						<div className="my-s-card" data-aos="fade-left">
 							<div className="my-s-inner">
 								<img src="/svg/react.svg" alt="react" />
 								<h3>99%</h3>
@@ -445,7 +474,7 @@ const Home = () => {
 							<p className="text-center">React</p>
 						</div>
 
-						<div className="my-s-card">
+						<div className="my-s-card" data-aos="fade-left">
 							<div className="my-s-inner">
 								<img src="/svg/js.svg" alt="java-script" />
 								<h3>99%</h3>
@@ -461,8 +490,8 @@ const Home = () => {
 			<section className="recent-blogs">
 				<div className="container">
 					<div className="my-skills-title">
-						<h2>Recent Blogs</h2>
-						<p>
+						<h2 data-aos="fade-up">Recent Blogs</h2>
+						<p data-aos="fade-up">
 							We put your ideas and thus your wishes in the form of a unique web project that inspires you and
 							your customers
 						</p>
@@ -479,7 +508,14 @@ const Home = () => {
 									<h1 className="flex flex-center w-100 mt-3">No blogs found</h1>
 								) : (
 									allBlogs.slice(0, 3).map((blog) => (
-										<Link key={blog._id} href={`/blogs/${blog.slug}`} className="re-blog">
+										<Link
+											key={blog._id}
+											href={`/blogs/${blog.slug}`}
+											className="re-blog"
+											data-aos="flip-left"
+											data-aos-easing="ease-out-cubic"
+											data-aos-duration="2000"
+										>
 											<div className="re-blog-img">
 												<img src={blog.images[0] || '/img/no-image.png'} alt={blog.title} />
 												<span>{blog.blogCategory[0].replace(/-/g, ' ')}</span>

@@ -14,9 +14,9 @@ const Services = () => {
 			<div className="services-page">
 				<div className="top-services">
 					<div className="container">
-						<h2>Sobolev Services</h2>
+						<h2 data-aos="fade-up">Sobolev Services</h2>
 
-						<p>
+						<p data-aos="fade-up">
 							Home <span>&gt;</span> Services
 						</p>
 					</div>
@@ -26,7 +26,7 @@ const Services = () => {
 					<div className="container">
 						<div className="c-services-box">
 							{/* Web Deployment */}
-							<div className="cs-service">
+							<div className="cs-service" data-aos="fade-right">
 								<span>01</span>
 
 								<div>
@@ -50,7 +50,7 @@ const Services = () => {
 							</div>
 
 							{/* Mobile Development */}
-							<div className="cs-service">
+							<div className="cs-service" data-aos="fade-right">
 								<span>02</span>
 
 								<div>
@@ -75,7 +75,7 @@ const Services = () => {
 							</div>
 
 							{/* Digital Marketing (SEO) */}
-							<div className="cs-service">
+							<div className="cs-service" data-aos="fade-up">
 								<span>03</span>
 
 								<div>
@@ -98,7 +98,7 @@ const Services = () => {
 							</div>
 
 							{/* Content Creator */}
-							<div className="cs-service">
+							<div className="cs-service" data-aos="fade-up">
 								<span>04</span>
 
 								<div>
@@ -121,7 +121,7 @@ const Services = () => {
 							</div>
 
 							{/* UI/UX Product Design */}
-							<div className="cs-service">
+							<div className="cs-service" data-aos="fade-left">
 								<span>05</span>
 
 								<div>
@@ -144,7 +144,7 @@ const Services = () => {
 							</div>
 
 							{/* E-commerce Business Solutions */}
-							<div className="cs-service">
+							<div className="cs-service" data-aos="fade-left">
 								<span>06</span>
 
 								<div>
@@ -173,16 +173,16 @@ const Services = () => {
 				<div className="pricing-plan-sec">
 					<div className="container">
 						<div className="pricing-title text-center">
-							<h3>
+							<h3 data-aos="fade-up">
 								<img src="/img/chevron-right.png" alt="" /> Pricing Plan
 							</h3>
 
-							<h2>Pricing my work</h2>
+							<h2 data-aos="fade-up">Pricing my work</h2>
 						</div>
 
 						<div className="pricing-cards">
 							{/* Life Plan */}
-							<div className="pricing-card">
+							<div className="pricing-card" data-aos="fade-right">
 								<h4>Life Plan</h4>
 
 								<p>Perfect choise for individual</p>
@@ -219,7 +219,7 @@ const Services = () => {
 							</div>
 
 							{/* Premium Plan */}
-							<div className="pricing-card">
+							<div className="pricing-card" data-aos="fade-up">
 								<h4>Premium Plan</h4>
 
 								<p>Perfect choise for individual</p>
@@ -256,7 +256,7 @@ const Services = () => {
 							</div>
 
 							{/* Pro Plan */}
-							<div className="pricing-card">
+							<div className="pricing-card" data-aos="fade-left">
 								<h4>Pro Plan</h4>
 
 								<p>Perfect choise for individual</p>

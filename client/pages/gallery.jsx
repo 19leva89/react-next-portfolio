@@ -18,9 +18,9 @@ const Gallery = () => {
 					<div className="gallery-top-sec">
 						<div className="top-phone-sec">
 							<div className="left-title-sec">
-								<h4>Sobolev Gallery Photos</h4>
+								<h4 data-aos="fade-right">Sobolev Gallery Photos</h4>
 
-								<h1>
+								<h1 data-aos="fade-right">
 									Vaibhav <br /> Photographers
 								</h1>
 
@@ -30,12 +30,30 @@ const Gallery = () => {
 							</div>
 
 							<div className="right-img-sec">
-								<img src="/img/gallery-1.jpg" alt="gallery" />
+								<img
+									src="/img/gallery-1.jpg"
+									alt="gallery"
+									data-aos="flip-left"
+									data-aos-ease="ease-in-cubic"
+									data-aos-duration="2000"
+								/>
 
 								<div className="r-img-top">
-									<img src="/img/gallery-2.jpg" alt="gallery" />
+									<img
+										src="/img/gallery-2.jpg"
+										alt="gallery"
+										data-aos="flip-right"
+										data-aos-ease="ease-in-cubic"
+										data-aos-duration="2000"
+									/>
 
-									<img src="/img/gallery-3.jpg" alt="gallery" />
+									<img
+										src="/img/gallery-3.jpg"
+										alt="gallery"
+										data-aos="flip-right"
+										data-aos-ease="ease-in-cubic"
+										data-aos-duration="2000"
+									/>
 								</div>
 							</div>
 						</div>
@@ -60,7 +78,13 @@ const Gallery = () => {
 						) : (
 							<div className="gallery-image-grid">
 								{allData.map((photo) => (
-									<div className="image-item" key={photo._id}>
+									<div
+										className="image-item"
+										key={photo._id}
+										data-aos="flip-left"
+										data-aos-ease="ease-in-cubic"
+										data-aos-duration="2000"
+									>
 										<img src={photo.images[0] || '/img/no-image.png'} alt="gallery" />
 
 										<div className="gallery-img-item-info">

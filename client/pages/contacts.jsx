@@ -85,7 +85,7 @@ const Contact = () => {
 			<div className="contact-page">
 				<div className="container">
 					<div className="contact-form-p">
-						<div className="left-cont-p">
+						<div className="left-cont-p" data-aos="fade-right">
 							<h2>Get in touch</h2>
 
 							<h2>Let`s talk about your project</h2>
@@ -149,7 +149,7 @@ const Contact = () => {
 							</div>
 						</div>
 
-						<div className="right-cont-p">
+						<div className="right-cont-p" data-aos="fade-left">
 							<form onSubmit={createProduct}>
 								<div className="right-cont-title">
 									<h2>Your Contact information</h2>

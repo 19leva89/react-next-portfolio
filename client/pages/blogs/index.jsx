@@ -67,16 +67,16 @@ const Blogs = () => {
 					<div className="container">
 						<div className="top-title">
 							<div className="top-title-cont flex">
-								<h1>
+								<h1 data-aos="fade-right">
 									Welcome to <span>Blogs!</span>
 								</h1>
 
-								<p>
+								<p data-aos="fade-right">
 									I write about web, mobile development and modern JavaScript frameworks. The best articles,
 									links and news related to web and mobile development
 								</p>
 
-								<div className="sub-email">
+								<div className="sub-email" data-aos="fade-up">
 									<form action="" className="flex">
 										<input onClick={handleSearchOpen} type="text" placeholder="Search blogs here..." />
 
@@ -92,7 +92,7 @@ const Blogs = () => {
 
 								<div className="featured-posts">
 									<div className="fe-title flex">
-										<h3>Featured Posts:</h3>
+										<h3 data-aos="fade-up">Featured Posts:</h3>
 									</div>
 
 									<div className="fe-posts flex">
@@ -109,7 +109,12 @@ const Blogs = () => {
 												</div>
 											) : (
 												sliderPublishedData.slice(0, 6).map((content) => (
-													<SwiperSlide key={content._id}>
+													<SwiperSlide
+														key={content._id}
+														data-aos="flip-left"
+														data-aos-ease="ease-in-cubic"
+														data-aos-duration="2000"
+													>
 														<div key={content._id} className="f-post">
 															<Link href={`/blogs/${content.slug}`}>
 																<img src={content.images[0] || '/img/no-image.png'} alt={content.title} />
@@ -158,7 +163,7 @@ const Blogs = () => {
 							</div>
 
 							<div className="popu-tags">
-								<Link href="/blogs/category/next-js" className="p-tag">
+								<Link href="/blogs/category/next-js" className="p-tag" data-aos="fade-right">
 									<img src="/img/next-js.png" alt="next js" />
 
 									<div className="tags">
@@ -169,7 +174,7 @@ const Blogs = () => {
 									</div>
 								</Link>
 
-								<Link href="/blogs/category/node-js" className="p-tag">
+								<Link href="/blogs/category/node-js" className="p-tag" data-aos="fade-right">
 									<img src="/img/node-js.png" alt="node js" />
 
 									<div className="tags">
@@ -180,7 +185,7 @@ const Blogs = () => {
 									</div>
 								</Link>
 
-								<Link href="/blogs/category/react-js" className="p-tag">
+								<Link href="/blogs/category/react-js" className="p-tag" data-aos="fade-right">
 									<img src="/img/react-js.gif" alt="react js" />
 
 									<div className="tags">
@@ -191,7 +196,7 @@ const Blogs = () => {
 									</div>
 								</Link>
 
-								<Link href="/blogs/category/digital-marketing" className="p-tag">
+								<Link href="/blogs/category/digital-marketing" className="p-tag" data-aos="fade-left">
 									<img src="/img/digital-marketing.png" alt="digital marketing" />
 
 									<div className="tags">
@@ -202,7 +207,7 @@ const Blogs = () => {
 									</div>
 								</Link>
 
-								<Link href="/blogs/category/flutter-dev" className="p-tag">
+								<Link href="/blogs/category/flutter-dev" className="p-tag" data-aos="fade-left">
 									<img src="/img/flutter-dev.png" alt="flutter dev" />
 
 									<div className="tags">
@@ -213,7 +218,7 @@ const Blogs = () => {
 									</div>
 								</Link>
 
-								<Link href="/blogs/category/css" className="p-tag">
+								<Link href="/blogs/category/css" className="p-tag" data-aos="fade-left">
 									<img src="/img/css.png" alt="css" />
 
 									<div className="tags">
@@ -244,7 +249,13 @@ const Blogs = () => {
 									</div>
 								) : (
 									publishedContent.map((content) => (
-										<div key={content._id} className="l-post">
+										<div
+											key={content._id}
+											className="l-post"
+											data-aos="flip-right"
+											data-aos-ease="ease-in-cubic"
+											data-aos-duration="2000"
+										>
 											<div className="l-post-img">
 												<Link href={`/blogs/${content.slug}`}>
 													<img src={content.images[0] || '/img/no-image.png'} alt={content.title} />

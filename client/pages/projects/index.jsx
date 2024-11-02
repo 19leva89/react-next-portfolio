@@ -69,15 +69,21 @@ const Projects = () => {
 				<div className="projects">
 					<div className="container">
 						<div className="projects-title">
-							<h2>My Recent Works</h2>
+							<h2 data-aos="fade-up">My Recent Works</h2>
 
-							<p>
+							<p data-aos="fade-up">
 								We put your ideas and thus your wishes in the form of a unique web project that inspires you
 								and you customers
 							</p>
 						</div>
 
-						<div className="projects-button">
+						<div
+							className="projects-button"
+							data-aos="fade-zoom-in"
+							data-aos-ease="ease-in-back"
+							data-aos-offset="0"
+							data-aos-delay="300"
+						>
 							<button
 								className={selectedCategory === 'all' ? 'active' : ''}
 								onClick={() => setSelectedCategory('all')}
@@ -139,7 +145,14 @@ const Projects = () => {
 										<h1 className="flex flex-center w-100 mt-3">No projects found</h1>
 									) : (
 										filtredProjects.map((project) => (
-											<Link key={project._id} href={`/projects/${project.slug}`} className="pro-card">
+											<Link
+												key={project._id}
+												href={`/projects/${project.slug}`}
+												className="pro-card"
+												data-aos="flip-left"
+												data-aos-ease="ease-in-cubic"
+												data-aos-duration="2000"
+											>
 												<div className="pro-img-box">
 													<img src={project.images[0] || '/img/no-image.png'} alt={project.title} />
 												</div>

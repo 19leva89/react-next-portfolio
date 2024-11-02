@@ -53,9 +53,9 @@ const Shop = () => {
 			<div className="shop-page">
 				<div className="shop-page-top-title">
 					<div className="container">
-						<h2>Shop Online</h2>
+						<h2 data-aos="fade-right">Shop Online</h2>
 
-						<h3>Our Products</h3>
+						<h3 data-aos="fade-right">Our Products</h3>
 					</div>
 				</div>
 
@@ -66,7 +66,14 @@ const Shop = () => {
 								<Spinner />
 							) : (
 								publishedData.map((product) => (
-									<Link href={`/shops/${product.slug}`} key={product._id} className="sp-pro-card">
+									<Link
+										href={`/shops/${product.slug}`}
+										key={product._id}
+										className="sp-pro-card"
+										data-aos="flip-left"
+										data-aos-ease="ease-in-cubic"
+										data-aos-duration="2000"
+									>
 										<div className="sp-pro-card-img">
 											<img src={product.images[0] || '/img/no-image.png'} alt={product.title} />
 										</div>

@@ -11,20 +11,18 @@ const App = ({ Component, pageProps }) => {
 	const [isLoading, setIsLoading] = useState(true)
 
 	useEffect(() => {
-		const handleComplete = () => {
+		const timeoutId = setTimeout(() => {
 			setIsLoading(false)
-		}
+		}, 3000)
 
-		setTimeout(() => handleComplete(), 3000)
-
-		return () => clearTimeout(handleComplete)
+		return () => clearTimeout(timeoutId)
 	}, [])
 
 	// aos animation
 	useEffect(() => {
 		Aos.init({
 			// Global settings:
-			disable: false,
+			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
 			startEvent: 'DOMContentLoaded',
 			initClassName: 'aos-init',
 			animatedClassName: 'aos-animate',
@@ -42,22 +40,28 @@ const App = ({ Component, pageProps }) => {
 			mirror: false,
 			anchorPlacement: 'top-bottom',
 		})
-	}, [])
+
+		if (!isLoading) {
+			Aos.refresh()
+		}
+	}, [isLoading])
 
 	return (
-		<Preloader isLoading={isLoading}>
-			<DarkModeProvider>
-				<Header />
-
+		<DarkModeProvider>
+			<Preloader isLoading={isLoading}>
 				{!isLoading && (
-					<main id="site-wrapper">
-						<Component {...pageProps} />
-					</main>
-				)}
+					<>
+						<Header />
 
-				<Footer />
-			</DarkModeProvider>
-		</Preloader>
+						<main id="site-wrapper">
+							<Component {...pageProps} />
+						</main>
+
+						<Footer />
+					</>
+				)}
+			</Preloader>
+		</DarkModeProvider>
 	)
 }
 

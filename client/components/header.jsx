@@ -14,6 +14,7 @@ export const Header = () => {
 	const router = useRouter()
 	const [mobile, setMobile] = useState(false)
 	const [clicked, setClicked] = useState(false)
+	const [isSticky, setIsSticky] = useState(false)
 	const [activeLink, setActiveLink] = useState('/')
 	const { darkMode, toggleDarkMode } = useDarkMode()
 
@@ -30,12 +31,23 @@ export const Header = () => {
 		setMobile(false)
 	}
 
+	const handleScroll = () => {
+		setIsSticky(window.scrollY > 0)
+	}
+
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll)
+		return () => {
+			window.removeEventListener('scroll', handleScroll)
+		}
+	}, [])
+
 	useEffect(() => {
 		setActiveLink(router.pathname)
 	}, [router.pathname])
 
 	return (
-		<header>
+		<header className={isSticky ? 'sticky' : ''}>
 			<nav className="container flex flex-sb">
 				<div className="logo flex gap-2">
 					<Link href="/">
